@@ -5,7 +5,7 @@ A Nigerian party word-guessing game for mobile, desktop, and web. Pass one devic
 > *Omo Naija* — "child of Nigeria." How well do you really sabi your slang?
 
 ## Status
-In development. Design is locked (see `index.html`); the app is being built phase by phase per `ROADMAP.md`.
+Playable. Phases 0–3 of `ROADMAP.md` are complete plus a buildless PWA — a full pass-and-play game that's installable and works offline. Phase 4 (online multiplayer, etc.) is deferred. See `CLAUDE.md` → Status and `documentation/RUNBOOK.md` for details.
 
 ## How to play (the game)
 1. Set up teams, timer length, mode, skip rule, and win condition.
