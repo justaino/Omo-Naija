@@ -1,0 +1,74 @@
+/* screens.css — per-screen layout containers (home, setup, pre-turn, play,
+   turn summary, scoreboard, reveal). Extracted verbatim from the prototype. */
+
+.screen__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+.turn-card {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex: 1;
+}
+.turn-card__title { margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 7vw, 3rem); line-height: 1.02; }
+.turn-card__subtitle { margin: 0; font-size: 1.05rem; font-weight: 600; }
+.rule-line { max-width: 320px; font-size: 0.95rem; color: rgba(255,255,255,0.92); font-weight: 600; }
+
+.play-card { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+.topbar-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.word-stack { flex: 1; display: grid; place-items: center; position: relative; padding-top: 18px; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.play-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+
+.summary-card { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+.summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.scoreboard-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.scoreboard-card { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+.team-grid { display: grid; gap: 12px; }
+.team-column { padding: 12px; border-radius: 22px; border: 1px solid rgba(30,30,30,0.08); background: rgba(255,255,255,0.8); }
+.team-column.is-expanded { background: rgba(0,135,81,0.08); }
+.team-column__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.team-column__name { font-weight: 800; }
+.team-column__score { display: inline-flex; min-height: 30px; padding: 0 10px; border-radius: var(--radius-pill); background: rgba(30,30,30,0.06); align-items: center; justify-content: center; font-weight: 800; }
+.pile-wrap { min-height: 180px; display: flex; align-items: flex-end; justify-content: center; position: relative; padding-top: 8px; }
+.expanded-panel { margin-top: 10px; padding: 10px 12px; border-radius: 16px; background: rgba(30,30,30,0.04); display: none; gap: 8px; }
+.team-column.is-expanded .expanded-panel { display: grid; }
+.expanded-panel__item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(30,30,30,0.08); font-size: 0.92rem; }
+.expanded-panel__item:last-child { border-bottom: 0; }
+
+.reveal-card { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; flex: 1; overflow: hidden; }
+.confetti { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 15% 20%, rgba(242,201,76,0.8) 0 5px, transparent 6px), radial-gradient(circle at 80% 14%, rgba(255,107,61,0.7) 0 4px, transparent 5px), radial-gradient(circle at 20% 79%, rgba(0,135,81,0.7) 0 4px, transparent 5px), radial-gradient(circle at 82% 72%, rgba(242,201,76,0.7) 0 5px, transparent 6px); background-size: 140px 140px; animation: drift 4s linear infinite; opacity: 0.8; }
+.reveal-card__header { text-align: center; position: relative; z-index: 1; }
+.reveal-card__eyebrow { display: inline-flex; align-items: center; justify-content: center; min-height: 30px; padding: 0 12px; border-radius: var(--radius-pill); background: rgba(242,201,76,0.2); color: #8a6a00; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.reveal-card__title { margin: 0; font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.7rem); line-height: 1.05; color: #b88600; }
+.podium { position: relative; z-index: 1; display: grid; gap: 12px; }
+.score-list { display: grid; gap: 8px; position: relative; z-index: 1; }
+.score-list__row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(30,30,30,0.08); font-size: 0.95rem; }
+.score-list__row:last-child { border-bottom: 0; }
+
+@media (min-width: 700px) {
+  .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

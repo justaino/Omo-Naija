@@ -1,0 +1,110 @@
+/* base.css — design tokens, reset, typography, app shell
+   Extracted verbatim from the index.html prototype. Do not redesign. */
+
+:root {
+  --color-primary: #008751;
+  --color-white: #FFFFFF;
+  --color-charcoal: #1E1E1E;
+  --color-gold: #F2C94C;
+  --color-coral: #FF6B3D;
+  --color-surface: #FFFDF7;
+  /* Display font: real bold display webfont (Anton) replacing the
+     "Arial Black" fallback. Fallbacks preserved so the feel is unchanged. */
+  --font-display: "Anton", "Arial Black", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-ui: "Inter", "General Sans", "Segoe UI", Roboto, sans-serif;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-ui);
+  color: var(--color-charcoal);
+  background: linear-gradient(135deg, #fffdf7 0%, #f7f3e8 100%);
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(30,30,30,0.08);
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(30,30,30,0.06);
+}
+
+.brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+}
+
+.brand-pill__mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.step-pill {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: rgba(30,30,30,0.7);
+}
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mute-btn {
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
+  border: 1px solid rgba(30,30,30,0.1);
+  border-radius: 50%;
+  background: var(--color-white);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.screen-stack {
+  flex: 1;
+  display: grid;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.is-visible {
+  display: block;
+}

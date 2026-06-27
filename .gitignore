@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Node (if Vite is added later)
+node_modules/
+dist/
+
+# Editor
+.vscode/
+.idea/
