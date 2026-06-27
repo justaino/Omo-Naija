@@ -6,7 +6,7 @@
 //
 // IMPORTANT: bump CACHE on every deploy that changes files, so installed
 // devices pick up the new version (the old cache is cleaned on activate).
-const CACHE = 'omo-naija-v10';
+const CACHE = 'omo-naija-v11';
 
 const PRECACHE = [
   './',

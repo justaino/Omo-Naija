@@ -57,9 +57,13 @@ body {
   color: var(--color-charcoal);
 }
 
+/* Lock the shell to exactly one screen height so it never grows past the
+   viewport: the topbar stays pinned and the screen area below it scrolls
+   internally (see .screen-stack), instead of the whole page scrolling. */
 .app-shell {
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -127,9 +131,19 @@ body {
   place-items: center;
 }
 
+/* The scroll region: fills the space under the fixed topbar and scrolls the
+   card within it. min-height:0 lets it shrink inside the flex column so the
+   overflow actually kicks in; overscroll-behavior stops scroll chaining to
+   the page. A little bottom padding keeps the card clear of the viewport edge
+   when scrolled to the end. */
 .screen-stack {
   flex: 1;
+  min-height: 0;
   display: grid;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding-bottom: 4px;
 }
 
 .screen {
