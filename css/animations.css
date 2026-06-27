@@ -12,10 +12,10 @@
   100% { transform: translateY(4%); }
 }
 
-/* Final-seconds urgency bar on the word card. */
+/* Final-seconds urgency dot on the word card. */
 @keyframes urgentPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.45; }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.65); }
 }
 
 /* Winner gold glow on the reveal podium. */

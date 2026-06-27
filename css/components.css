@@ -223,7 +223,7 @@
 .word-card--grey { background: linear-gradient(145deg, #2b2b2b 0%, var(--color-charcoal) 100%); box-shadow: 0 18px 40px rgba(30,30,30,0.28); }
 /* Final-seconds urgency: a thin coral bar on the card's left edge, instead of
    recolouring the whole card (which kept its green/charcoal mode colour). */
-.word-card__urgentbar { position: absolute; top: 18px; bottom: 18px; left: 12px; width: 5px; border-radius: 999px; background: transparent; pointer-events: none; }
+.word-card__urgentbar { position: absolute; top: 14px; right: 14px; width: 13px; height: 13px; border-radius: 50%; background: transparent; pointer-events: none; }
 .word-card--urgent .word-card__urgentbar { background: var(--color-coral); animation: urgentPulse 1s ease-in-out infinite; }
 .word-card__tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag { display: inline-flex; align-items: center; justify-content: center; min-height: 28px; padding: 0 10px; border-radius: var(--radius-pill); background: rgba(255,255,255,0.18); font-size: 0.78rem; font-weight: 700; }
