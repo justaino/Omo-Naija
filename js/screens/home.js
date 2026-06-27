@@ -11,7 +11,7 @@ export function render(el, ctx) {
     <div class="card">
       <div class="texture" aria-hidden="true"></div>
       <div class="hero">
-        <div class="brand-mark">N</div>
+        <div class="brand-mark">ON</div>
         <div>
           <div class="screen__eyebrow">Nigerian party game</div>
           <h1 class="screen__title">Omo Naija</h1>
