@@ -23,19 +23,13 @@ export function render(el, ctx) {
       </div>`;
   }).join('');
 
-  const list = ranked.map((t) =>
-    `<div class="score-list__row"><span>${esc(t.name)}</span><strong class="count" data-to="${t.score}">0</strong></div>`
-  ).join('');
-
   el.innerHTML = `
     <div class="card reveal-card">
-      <div class="confetti" aria-hidden="true"></div>
       <div class="reveal-card__header">
         <div class="reveal-card__eyebrow">Celebration time</div>
         <h2 class="reveal-card__title">${esc(title)}</h2>
       </div>
       <div class="podium">${podium}</div>
-      <div class="score-list">${list}</div>
       <div class="button-stack">
         <button class="btn btn--primary" data-again>Play again (same teams)</button>
         <button class="btn btn--secondary" data-new>New game</button>
