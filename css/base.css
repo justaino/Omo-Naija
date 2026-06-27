@@ -1,6 +1,15 @@
 /* base.css — design tokens, reset, typography, app shell
    Extracted verbatim from the index.html prototype. Do not redesign. */
 
+/* Self-hosted display font (was Google Fonts) so the app works fully offline. */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/anton-latin.woff2') format('woff2');
+}
+
 :root {
   --color-primary: #008751;
   --color-white: #FFFFFF;
@@ -24,6 +33,12 @@
 }
 
 * { box-sizing: border-box; }
+
+/* Accessibility: a clear keyboard focus ring (coral reads on every surface). */
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-coral);
+  outline-offset: 2px;
+}
 
 body {
   margin: 0;

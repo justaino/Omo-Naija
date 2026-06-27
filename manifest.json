@@ -1,0 +1,16 @@
+{
+  "name": "Omo Naija",
+  "short_name": "Omo Naija",
+  "description": "A Nigerian party word-guessing game. Pass the phone, describe Naija slang, build a pile of cards.",
+  "lang": "en",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFDF7",
+  "theme_color": "#008751",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

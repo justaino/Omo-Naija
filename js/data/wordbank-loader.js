@@ -1,16 +1,21 @@
-// wordbank-loader.js — loads a word bank from data/wordbanks/<id>.json.
-// Word banks are data, not code: each bank is a pluggable JSON module.
-// Phase 0: just load the bank and return its cards (logs the count to prove it).
+// wordbank-loader.js — loads a word bank by id and returns its cards.
+// Custom banks (user-created) live in localStorage; bundled banks are JSON
+// files under data/wordbanks/. Words are data, not code.
+import { getCustomBank } from '../banks.js';
 
 const WORDBANK_BASE = 'data/wordbanks';
 
-// Load a word bank by id and return its array of cards.
-// Resolves relative to the document (index.html at the project root), so this
-// works when the folder is served (e.g. `npx serve`). fetch() of a local file
-// won't work over the file:// protocol — serve the folder instead.
 export async function loadWordbank(id = 'naija-classic') {
-  const url = `${WORDBANK_BASE}/${id}.json`;
-  const res = await fetch(url);
+  // Custom bank? Serve it straight from localStorage (works offline, no fetch).
+  const custom = getCustomBank(id);
+  if (custom) {
+    const cards = Array.isArray(custom.cards) ? custom.cards : [];
+    console.log(`[wordbank-loader] loaded custom "${custom.name}" — ${cards.length} cards`);
+    return cards;
+  }
+
+  // Bundled bank — fetch the JSON (relative to the document; serve the folder).
+  const res = await fetch(`${WORDBANK_BASE}/${id}.json`);
   if (!res.ok) {
     throw new Error(`Word bank "${id}" failed to load: ${res.status} ${res.statusText}`);
   }

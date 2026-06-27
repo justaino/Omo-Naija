@@ -9,6 +9,7 @@
 // doesn't sleep mid-play.
 
 import * as sound from './sound.js';
+import * as haptics from './haptics.js';
 
 const URGENT_MS = 10000; // last 10s: ring + word card go coral/urgent
 const TICK_FROM = 5;     // play a tick each of the final 5 seconds
@@ -74,6 +75,7 @@ function tick() {
   if (remaining <= 0 && !expired) {
     expired = true;
     sound.play('buzzer');
+    haptics.buzzer();
     stop();
     if (onExpire) onExpire();
   }

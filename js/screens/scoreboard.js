@@ -13,7 +13,7 @@ export function render(el, ctx) {
     ).join('') || '<div class="expanded-panel__item"><span>No cards yet</span><span></span></div>';
 
     return `
-      <div class="team-column" data-toggle>
+      <div class="team-column" data-toggle role="button" tabindex="0" aria-expanded="false" aria-label="${esc(t.name)} pile, ${t.score} cards — toggle word list">
         <div class="team-column__top">
           <div class="team-column__name"><span class="swatch" style="background:${t.color}; display:inline-block; vertical-align:middle; margin-right:6px;"></span>${esc(t.name)}</div>
           <div class="team-column__score">${t.score}</div>
@@ -42,8 +42,13 @@ export function render(el, ctx) {
       </div>
     </div>`;
 
-  el.querySelectorAll('[data-toggle]').forEach((col) =>
-    col.addEventListener('click', () => col.classList.toggle('is-expanded')));
+  el.querySelectorAll('[data-toggle]').forEach((col) => {
+    const toggle = () => col.setAttribute('aria-expanded', String(col.classList.toggle('is-expanded')));
+    col.addEventListener('click', toggle);
+    col.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
   el.querySelector('[data-back]').addEventListener('click', () => ctx.actions.backToSummary());
   el.querySelector('[data-end]').addEventListener('click', () => ctx.actions.endGameConfirm());
 }

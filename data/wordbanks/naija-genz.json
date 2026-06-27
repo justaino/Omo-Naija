@@ -1,0 +1,32 @@
+{
+  "id": "naija-genz",
+  "name": "Naija Gen-Z",
+  "description": "Newer-school Nigerian internet and street slang. Lighter and more modern than the classic bank.",
+  "language": "Nigerian Pidgin / Slang",
+  "cards": [
+    { "id": "g001", "text": "Gen Z", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "the young generation", "modes": ["grey"] },
+    { "id": "g002", "text": "No cap", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "no lie / for real", "modes": ["grey"] },
+    { "id": "g003", "text": "God when", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "longing for your own blessing", "modes": ["grey"] },
+    { "id": "g004", "text": "It is what it is", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "accepting a situation", "modes": ["grey"] },
+    { "id": "g005", "text": "Outside", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "out partying / on the streets", "modes": ["green", "grey"] },
+    { "id": "g006", "text": "Banger", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "a hit song", "modes": ["green", "grey"] },
+    { "id": "g007", "text": "Soft life", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "a life of ease and comfort", "modes": ["green", "grey"] },
+    { "id": "g008", "text": "Japa", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "to flee / relocate abroad", "modes": ["green", "grey"] },
+    { "id": "g009", "text": "Sapa", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "sudden brokenness", "modes": ["grey"] },
+    { "id": "g010", "text": "Ginger", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "to motivate / hype up", "modes": ["green", "grey"] },
+    { "id": "g011", "text": "Vibe check", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "gauging the mood", "modes": ["grey"] },
+    { "id": "g012", "text": "Rizz", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "charm / game", "modes": ["green", "grey"] },
+    { "id": "g013", "text": "Slay", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "to look or do amazing", "modes": ["green", "grey"] },
+    { "id": "g014", "text": "Mid", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "average / not impressive", "modes": ["grey"] },
+    { "id": "g015", "text": "Ghost", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "to disappear on someone", "modes": ["green", "grey"] },
+    { "id": "g016", "text": "Streets", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "the social scene / dating world", "modes": ["green", "grey"] },
+    { "id": "g017", "text": "Wave", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "a trend or movement", "modes": ["green", "grey"] },
+    { "id": "g018", "text": "Gen Z anthem", "category": "slang", "era": "gen-z", "difficulty": "hard", "hint": "a song everyone vibes to", "modes": ["grey"] },
+    { "id": "g019", "text": "Unalive", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "internet-safe way to say something extreme", "modes": ["grey"] },
+    { "id": "g020", "text": "Delulu", "category": "slang", "era": "gen-z", "difficulty": "medium", "hint": "delusional in a fun way", "modes": ["green", "grey"] },
+    { "id": "g021", "text": "Pull up", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "to show up somewhere", "modes": ["green", "grey"] },
+    { "id": "g022", "text": "Low key", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "quietly / secretly", "modes": ["grey"] },
+    { "id": "g023", "text": "High key", "category": "slang", "era": "gen-z", "difficulty": "easy", "hint": "openly / obviously", "modes": ["grey"] },
+    { "id": "g024", "text": "Understand the assignment", "category": "slang", "era": "gen-z", "difficulty": "hard", "hint": "to nail exactly what was needed", "modes": ["grey"] }
+  ]
+}

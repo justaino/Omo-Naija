@@ -16,14 +16,24 @@ In development. Design is locked (see `index.html`); the app is being built phas
 6. Tap **End game** anytime to reveal the final stacks and the winner.
 
 ## Tech
-- Vanilla HTML / CSS / JavaScript (no UI framework).
-- GSAP (+ Flip) for animation, Howler.js for sound, canvas-confetti for the win.
+- Vanilla HTML / CSS / JavaScript (no UI framework, no build step).
+- GSAP (+ Flip) for animation, Howler.js for sound, canvas-confetti for the win — all vendored locally in `assets/vendor/` (no CDN), so the app works offline.
 - `localStorage` for game state + settings (no backend, no accounts).
-- Optional Vite for dev server + PWA (installable, offline).
+- Buildless PWA: hand-written `manifest.json` + `service-worker.js` — installable and fully offline.
 
 ## Run it
-**Buildless:** open `index.html` in a browser, or serve the folder (`npx serve`).
-**With Vite (once set up):** `npm install` then `npm run dev`.
+Serve the folder over HTTP (ES-module imports and the word-bank `fetch` don't work from `file://`):
+
+```
+npx serve          # or: python3 -m http.server
+```
+
+Then open the printed `http://localhost:…` URL. The PWA installs over **HTTPS or localhost** (browsers block service workers on plain `file://`/LAN-HTTP).
+
+### Test on your phone
+Deploy to **GitHub Pages** (Settings → Pages → deploy from a branch). Pages serves over HTTPS, so on your phone you can open the URL and **Add to Home Screen** to install it and run it offline. No build needed — Pages serves the static files as-is.
+
+> Note: after changing files, bump `CACHE` in `service-worker.js` so installed devices pick up the new version.
 
 ## Structure
 ```

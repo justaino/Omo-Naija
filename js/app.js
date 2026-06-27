@@ -3,6 +3,7 @@
 // resume. All navigation flows through gameState.phase; no hardcoded indices.
 
 import { gameState, loadState, saveState, resetState, clearState, MIN_TEAMS } from './state.js';
+import { loadPrefs } from './preferences.js';
 import { loadWordbank } from './data/wordbank-loader.js';
 import * as game from './game.js';
 import * as timer from './timer.js';
@@ -15,8 +16,12 @@ import * as play from './screens/play.js';
 import * as summary from './screens/summary.js';
 import * as scoreboard from './screens/scoreboard.js';
 import * as reveal from './screens/reveal.js';
+import * as settings from './screens/settings.js';
+import * as howto from './screens/howto.js';
 
 // phase -> screen element id, topbar title, and the module that renders it.
+// The seven `core` screens are the numbered game flow; `aux` screens (settings,
+// how-to) are reachable from Home but not part of the 1..7 progression.
 const SCREENS = [
   { phase: 'home',        id: 'home-screen',       title: 'Home',           mod: home },
   { phase: 'setup',       id: 'setup-screen',      title: 'Setup',          mod: setup },
@@ -25,7 +30,10 @@ const SCREENS = [
   { phase: 'turnsummary', id: 'summary-screen',    title: 'Turn summary',   mod: summary },
   { phase: 'scoreboard',  id: 'scoreboard-screen', title: 'Scoreboard',     mod: scoreboard },
   { phase: 'end',         id: 'reveal-screen',     title: 'Reveal',         mod: reveal },
+  { phase: 'settings',    id: 'settings-screen',   title: 'Settings',       mod: settings, aux: true },
+  { phase: 'howto',       id: 'howto-screen',      title: 'How to play',    mod: howto,    aux: true },
 ];
+const CORE = SCREENS.filter((s) => !s.aux);
 
 const stepPill = document.getElementById('step-pill');
 const muteBtn = document.getElementById('mute-btn');
@@ -64,7 +72,14 @@ function render() {
     else el.innerHTML = ''; // drop inactive listeners
   });
 
-  if (stepPill) stepPill.textContent = `${idx + 1} / ${SCREENS.length} ${active.title}`;
+  if (stepPill) {
+    if (active.aux) {
+      stepPill.textContent = active.title;
+    } else {
+      const n = CORE.findIndex((s) => s.phase === active.phase) + 1;
+      stepPill.textContent = `${n} / ${CORE.length} ${active.title}`;
+    }
+  }
 
   // The timer only runs on the play screen; its source of truth is turn.endsAt.
   if (active.phase === 'play' && gameState.turn.endsAt) {
@@ -83,7 +98,14 @@ ctx.actions = {
     render();
   },
 
-  startGame(draft) {
+  async startGame(draft) {
+    // Load the chosen word bank so the deck is built from it (not the boot one).
+    try {
+      const cards = await loadWordbank(draft.settings.wordbankId);
+      game.setCards(cards);
+    } catch (err) {
+      console.error('[app] could not load chosen bank, using current cards', err);
+    }
     game.startGame(draft); // -> phase 'preturn', status 'playing'
     render();
   },
@@ -153,6 +175,14 @@ ctx.actions = {
     resetState(); // back to a pristine home
     render();
   },
+
+  // Aux screens (reachable from Home; don't touch game state).
+  openSettings() { gameState.phase = 'settings'; render(); },
+  openHowto() { gameState.phase = 'howto'; render(); },
+  goHome() { gameState.phase = 'home'; render(); },
+
+  // Let the Settings screen keep the topbar mute icon in sync.
+  syncMute() { updateMuteButton(); },
 };
 
 // --- Boot -------------------------------------------------------------------
@@ -172,6 +202,7 @@ function checkLibraries() {
 }
 
 async function boot() {
+  loadPrefs(); // global toggles + setup defaults
   loadState(); // hydrate gameState from disk (if any)
   checkLibraries();
   sound.initSound();
@@ -210,3 +241,13 @@ async function boot() {
 }
 
 boot();
+
+// Register the service worker (PWA: installable + offline). Relative path so the
+// scope matches whatever base the app is served from (incl. GitHub Pages).
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js')
+      .then((reg) => console.log('[sw] registered, scope:', reg.scope))
+      .catch((err) => console.warn('[sw] registration failed', err));
+  });
+}

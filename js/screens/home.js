@@ -19,12 +19,14 @@ export function render(el, ctx) {
         <button class="btn btn--primary" data-act="play">Play</button>
         ${canContinue ? '<button class="btn btn--secondary" data-act="continue">Continue game</button>' : ''}
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-          <button class="btn btn--ghost" disabled>How to play</button>
-          <button class="btn btn--ghost" disabled>Settings</button>
+          <button class="btn btn--ghost" data-act="howto">How to play</button>
+          <button class="btn btn--ghost" data-act="settings">Settings</button>
         </div>
       </div>
     </div>`;
 
   el.querySelector('[data-act="play"]').addEventListener('click', () => ctx.actions.openSetup());
   el.querySelector('[data-act="continue"]')?.addEventListener('click', () => ctx.actions.continueGame());
+  el.querySelector('[data-act="howto"]').addEventListener('click', () => ctx.actions.openHowto());
+  el.querySelector('[data-act="settings"]').addEventListener('click', () => ctx.actions.openSettings());
 }

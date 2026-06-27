@@ -13,8 +13,12 @@ Persistent guardrails for this repo. Read before any work. These don't change be
 - **GSAP (+ Flip plugin)** for animation — card fly-to-pile, deck shrink, end-game reveal sequencing.
 - **canvas-confetti** for the win celebration.
 - **Howler.js** for sound (final-seconds tick, "got it" ding, end-of-turn buzzer).
-- **Vite** is the only permitted build tool, and only for dev server + PWA (`vite-plugin-pwa`). No other bundsize/tooling. If in doubt, stay buildless.
-- Libraries load via npm (with Vite) or CDN/ESM. Keep dependencies minimal and justified.
+- **Buildless — no build step, no bundler.** The app is plain ES modules served statically; it must keep running by serving the folder over HTTP. (Vite was evaluated for the PWA and deliberately not adopted — see ROADMAP/runbook.)
+- Libraries are **vendored locally** in `assets/vendor/` (loaded via `<script>` in `index.html`) so the app works offline — no CDN at runtime. The Anton display font is self-hosted in `assets/fonts/`. Keep dependencies minimal and justified.
+
+## PWA / service worker
+- The PWA is hand-written: `manifest.json` + `service-worker.js` (cache-first precache of the app shell). It is installable and fully offline.
+- **Bump `CACHE` in `service-worker.js` on every deploy that changes any file** (e.g. `omo-naija-v1` → `-v2`). The `activate` handler deletes old caches, so bumping is how installed devices pick up new files — forget it and phones keep serving the stale cached version. When you add/remove a file in the shell, also update the `PRECACHE` list.
 
 ## Architecture rules
 - **Single source of truth: one `gameState` object.** Screens render from state; never drive navigation by a hardcoded screen index. The prototype's linear `data-go` stepper is throwaway scaffolding — replace it with state-driven routing.

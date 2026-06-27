@@ -26,8 +26,7 @@ export function defaultSettings() {
     skipRule: 'free',            // 'free' | 'limited' | 'penalty'
     winCondition: 'open',        // 'open' | 'firstToN' | 'fixedRounds'
     winTarget: 5,                // score (firstToN) or rounds (fixedRounds)
-    wordbankId: 'naija-classic',
-    soundEnabled: true,
+    wordbankId: 'naija-classic', // global sound/haptics live in preferences.js
   };
 }
 

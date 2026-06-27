@@ -1,6 +1,6 @@
 // sound.js — Howler-backed sound effects (synthesized WAVs in assets/sounds/).
-// Honours the global mute stored in gameState.settings.soundEnabled.
-import { gameState, saveState } from './state.js';
+// Honours the global mute stored in preferences.soundEnabled.
+import { preferences, savePrefs } from './preferences.js';
 
 let sounds = {};
 let ready = false;
@@ -19,23 +19,28 @@ export function initSound() {
 }
 
 function applyMute() {
-  if (typeof Howler !== 'undefined') Howler.mute(!gameState.settings.soundEnabled);
+  if (typeof Howler !== 'undefined') Howler.mute(!preferences.soundEnabled);
+}
+
+// Re-sync mute with the current preference (call after a settings change).
+export function refreshMute() {
+  applyMute();
 }
 
 // Play a named effect, unless muted.
 export function play(name) {
-  if (!ready || !gameState.settings.soundEnabled) return;
+  if (!ready || !preferences.soundEnabled) return;
   sounds[name]?.play();
 }
 
 export function isMuted() {
-  return !gameState.settings.soundEnabled;
+  return !preferences.soundEnabled;
 }
 
 // Flip global mute, persist it, return the new muted state.
 export function toggleMute() {
-  gameState.settings.soundEnabled = !gameState.settings.soundEnabled;
+  preferences.soundEnabled = !preferences.soundEnabled;
   applyMute();
-  saveState();
+  savePrefs();
   return isMuted();
 }

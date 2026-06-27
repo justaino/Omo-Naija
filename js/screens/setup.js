@@ -1,6 +1,8 @@
 // setup.js — the game setup form. Edits a local DRAFT (teams + settings) and
 // only commits to gameState when "Start game" is pressed.
 import { TEAM_COLORS, MIN_TEAMS, MAX_TEAMS, defaultSettings } from '../state.js';
+import { preferences } from '../preferences.js';
+import { availableBanks } from '../banks.js';
 import { esc } from '../util.js';
 
 let draft = null;
@@ -14,8 +16,17 @@ export function prepare(prefill) {
       teams: prefill.teams.map((t, i) => ({ name: t.name, color: t.color || TEAM_COLORS[i % MAX_TEAMS] })),
     };
   } else {
+    // Seed from the user's saved defaults (Settings screen).
     draft = {
-      settings: defaultSettings(),
+      settings: {
+        ...defaultSettings(),
+        timerSeconds: preferences.defaultTimerSeconds,
+        mode: preferences.defaultMode,
+        skipRule: preferences.defaultSkipRule,
+        winCondition: preferences.defaultWinCondition,
+        winTarget: preferences.defaultWinTarget,
+        wordbankId: preferences.defaultWordbankId,
+      },
       teams: [
         { name: 'Team A', color: TEAM_COLORS[0] },
         { name: 'Team B', color: TEAM_COLORS[1] },
@@ -28,6 +39,9 @@ export function render(el, ctx) {
   if (!draft) prepare();
   const rerender = () => render(el, ctx);
   const s = draft.settings;
+
+  const banks = availableBanks();
+  if (!banks.some((b) => b.id === s.wordbankId)) s.wordbankId = banks[0]?.id || 'naija-classic';
 
   const seg = (active) => (active ? ' class="active"' : '');
   const showStepper = s.winCondition !== 'open';
@@ -53,6 +67,13 @@ export function render(el, ctx) {
             <button class="icon-btn" data-remove="${i}" aria-label="Remove team ${i + 1}" ${draft.teams.length <= MIN_TEAMS ? 'disabled' : ''}>×</button>
           </div>`).join('')}
         <button class="btn btn--ghost" data-add style="min-height:44px; margin-top:6px;" ${draft.teams.length >= MAX_TEAMS ? 'disabled' : ''}>+ Add team</button>
+      </div>
+
+      <div>
+        <div class="screen__eyebrow" style="margin-bottom:10px;">Word bank</div>
+        <select class="bank-select" data-bank aria-label="Word bank">
+          ${banks.map((b) => `<option value="${b.id}"${b.id === s.wordbankId ? ' selected' : ''}>${esc(b.name)}${b.custom ? ' (custom)' : ''}</option>`).join('')}
+        </select>
       </div>
 
       <div>
@@ -125,6 +146,10 @@ export function render(el, ctx) {
     const letter = String.fromCharCode(65 + draft.teams.length); // A, B, C...
     draft.teams.push({ name: `Team ${letter}`, color });
     rerender();
+  });
+
+  el.querySelector('[data-bank]')?.addEventListener('change', (e) => {
+    draft.settings.wordbankId = e.target.value;
   });
 
   el.querySelectorAll('[data-timer]').forEach((b) =>

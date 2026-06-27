@@ -5,6 +5,7 @@ import { currentTeam, canSkip, SKIP_LIMIT } from '../game.js';
 import { esc, modeLabel, modeRule } from '../util.js';
 import * as anim from '../anim.js';
 import * as sound from '../sound.js';
+import * as haptics from '../haptics.js';
 
 export function render(el, ctx) {
   const { state } = ctx;
@@ -75,18 +76,49 @@ export function render(el, ctx) {
       </div>
     </div>`;
 
-  // Animate the outgoing card (cosmetic), then advance the game immediately.
-  // Order matters: clone the current card BEFORE the action re-renders the next.
-  el.querySelector('[data-got]').addEventListener('click', () => {
+  const cardEl = el.querySelector('#word-card');
+
+  // The two outcomes — used by both the buttons and the swipe gestures.
+  // Each animates the outgoing card (cosmetic), then advances the game.
+  const doGot = () => {
     sound.play('ding');
-    anim.flyToPile(el.querySelector('#word-card'), el.querySelector('#score-pill'));
+    haptics.tap();
+    anim.flyToPile(cardEl, el.querySelector('#score-pill'));
     ctx.actions.gotIt();
-  });
-
-  el.querySelector('[data-skip]').addEventListener('click', () => {
-    anim.skipAway(el.querySelector('#word-card'));
+  };
+  const doSkip = () => {
+    anim.skipAway(cardEl);
     ctx.actions.skip();
-  });
+  };
 
+  el.querySelector('[data-got]').addEventListener('click', doGot);
+  el.querySelector('[data-skip]').addEventListener('click', () => { if (!skipDisabled) doSkip(); });
   el.querySelector('[data-end]').addEventListener('click', () => ctx.actions.endGameConfirm());
+
+  // Swipe: right = Got it, left = Skip (alongside the buttons).
+  let dragging = false, startX = 0, startY = 0, dx = 0;
+  const THRESHOLD = 90;
+  const snapBack = () => { cardEl.style.transition = 'transform 0.2s ease'; cardEl.style.transform = ''; };
+
+  cardEl.style.touchAction = 'pan-y'; // vertical scroll stays; we own horizontal
+  cardEl.addEventListener('pointerdown', (e) => {
+    dragging = true; startX = e.clientX; startY = e.clientY; dx = 0;
+    cardEl.style.transition = 'none';
+    try { cardEl.setPointerCapture?.(e.pointerId); } catch { /* non-active pointer */ }
+  });
+  cardEl.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    dx = e.clientX - startX;
+    if (Math.abs(dx) < Math.abs(e.clientY - startY)) return; // mostly vertical: ignore
+    cardEl.style.transform = `translateX(${dx}px) rotate(${dx * 0.04}deg)`;
+  });
+  const endDrag = () => {
+    if (!dragging) return;
+    dragging = false;
+    if (dx > THRESHOLD) doGot();
+    else if (dx < -THRESHOLD) { skipDisabled ? snapBack() : doSkip(); }
+    else snapBack();
+  };
+  cardEl.addEventListener('pointerup', endDrag);
+  cardEl.addEventListener('pointercancel', endDrag);
 }

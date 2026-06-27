@@ -133,6 +133,7 @@
   display: grid;
   gap: 10px;
 }
+.segmented--2 { grid-template-columns: 1fr 1fr; }
 .segmented--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .segmented button {
   min-height: 44px;
@@ -224,6 +225,17 @@
 .action-btn--skip { background: var(--color-charcoal); color: var(--color-white); }
 .ghost-link { border: 0; background: transparent; color: rgba(30,30,30,0.75); font-weight: 700; cursor: pointer; }
 .deck-count { font-size: 0.78rem; font-weight: 700; color: rgba(30,30,30,0.55); }
+
+/* Settings / forms */
+.bank-select, .field { width: 100%; min-height: 44px; border: 1px solid rgba(30,30,30,0.14); border-radius: var(--radius-md); padding: 0 12px; font: inherit; background: var(--color-white); color: var(--color-charcoal); }
+textarea.field { min-height: 88px; padding: 10px 12px; resize: vertical; margin: 8px 0; }
+.setting-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.setting-row > span { font-weight: 700; }
+.setting-row .segmented { min-width: 150px; }
+
+/* How to play */
+.howto-list { margin: 0; padding-left: 20px; line-height: 1.5; color: rgba(30,30,30,0.82); }
+.howto-list li { margin-bottom: 6px; }
 
 .mini-card { border-radius: 16px; padding: 10px 12px; min-height: 78px; background: linear-gradient(145deg, rgba(0,135,81,0.16) 0%, rgba(0,135,81,0.06) 100%); color: var(--color-charcoal); display: flex; flex-direction: column; justify-content: space-between; }
 button.mini-card { border: 0; font: inherit; text-align: left; width: 100%; cursor: pointer; }
