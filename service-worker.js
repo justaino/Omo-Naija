@@ -6,17 +6,18 @@
 //
 // IMPORTANT: bump CACHE on every deploy that changes files, so installed
 // devices pick up the new version (the old cache is cleaned on activate).
-const CACHE = 'omo-naija-v2';
+const CACHE = 'omo-naija-v3';
 
 const PRECACHE = [
   './',
   'index.html',
   'manifest.json',
   // styles
-  'css/base.css', 'css/components.css', 'css/screens.css', 'css/animations.css',
+  'css/base.css', 'css/components.css', 'css/screens.css', 'css/animations.css', 'css/dark.css',
   // app modules
   'js/app.js', 'js/state.js', 'js/preferences.js', 'js/game.js', 'js/deck.js',
   'js/timer.js', 'js/sound.js', 'js/haptics.js', 'js/anim.js', 'js/banks.js',
+  'js/theme.js', 'js/install.js',
   'js/util.js', 'js/data/wordbank-loader.js', 'js/components/card-stack.js',
   'js/screens/home.js', 'js/screens/setup.js', 'js/screens/preturn.js',
   'js/screens/play.js', 'js/screens/summary.js', 'js/screens/scoreboard.js',

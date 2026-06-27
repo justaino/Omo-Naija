@@ -1,9 +1,12 @@
 // home.js — landing screen. "Play" starts setup; "Continue game" appears only
-// when a resumable in-progress game exists on disk.
+// when a resumable in-progress game exists on disk; "Install app" appears when
+// the app can be installed (or on iOS, to show instructions).
 import { hasResumableGame } from '../state.js';
+import * as install from '../install.js';
 
 export function render(el, ctx) {
   const canContinue = hasResumableGame();
+  const canInstall = install.canShow();
   el.innerHTML = `
     <div class="card">
       <div class="texture" aria-hidden="true"></div>
@@ -22,6 +25,7 @@ export function render(el, ctx) {
           <button class="btn btn--ghost" data-act="howto">How to play</button>
           <button class="btn btn--ghost" data-act="settings">Settings</button>
         </div>
+        ${canInstall ? '<button class="btn btn--secondary" data-act="install">⤓ Install app</button>' : ''}
       </div>
     </div>`;
 
@@ -29,4 +33,5 @@ export function render(el, ctx) {
   el.querySelector('[data-act="continue"]')?.addEventListener('click', () => ctx.actions.continueGame());
   el.querySelector('[data-act="howto"]').addEventListener('click', () => ctx.actions.openHowto());
   el.querySelector('[data-act="settings"]').addEventListener('click', () => ctx.actions.openSettings());
+  el.querySelector('[data-act="install"]')?.addEventListener('click', () => install.activate());
 }

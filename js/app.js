@@ -8,6 +8,8 @@ import { loadWordbank } from './data/wordbank-loader.js';
 import * as game from './game.js';
 import * as timer from './timer.js';
 import * as sound from './sound.js';
+import * as theme from './theme.js';
+import * as install from './install.js';
 
 import * as home from './screens/home.js';
 import * as setup from './screens/setup.js';
@@ -37,6 +39,7 @@ const CORE = SCREENS.filter((s) => !s.aux);
 
 const stepPill = document.getElementById('step-pill');
 const muteBtn = document.getElementById('mute-btn');
+const themeBtn = document.getElementById('theme-btn');
 
 function updateMuteButton() {
   if (!muteBtn) return;
@@ -44,6 +47,13 @@ function updateMuteButton() {
   muteBtn.textContent = muted ? '🔇' : '🔊';
   muteBtn.setAttribute('aria-pressed', String(muted));
   muteBtn.setAttribute('aria-label', muted ? 'Unmute sound' : 'Mute sound');
+}
+
+function updateThemeButton() {
+  if (!themeBtn) return;
+  const dark = theme.isDark();
+  themeBtn.textContent = dark ? '☀️' : '🌙';
+  themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
 }
 
 // Where to resume when the user taps "Continue game" on Home.
@@ -207,11 +217,19 @@ async function boot() {
   checkLibraries();
   sound.initSound();
 
-  // Global mute toggle lives in the topbar (wired once; outside the screens).
+  // Topbar controls (wired once; outside the screens).
+  theme.apply();
   if (muteBtn) {
     muteBtn.addEventListener('click', () => { sound.toggleMute(); updateMuteButton(); });
     updateMuteButton();
   }
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => { theme.toggle(); updateThemeButton(); });
+    updateThemeButton();
+  }
+  theme.initSystemListener(updateThemeButton);
+  // The install prompt can arrive after first paint — refresh Home when it does.
+  install.onAvailable(() => { if (gameState.phase === 'home') render(); });
 
   // Decide the landing screen from the loaded state (synchronously, so the
   // first paint is instant — Home/Setup/Reveal don't need the word bank).

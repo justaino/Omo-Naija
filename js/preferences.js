@@ -14,6 +14,7 @@ export const preferences = {
   // Global toggles.
   soundEnabled: true,
   hapticsEnabled: true,
+  theme: 'system', // 'system' | 'light' | 'dark'
 };
 
 export function loadPrefs() {

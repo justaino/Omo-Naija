@@ -39,7 +39,6 @@ export function render(el, ctx) {
       <div class="button-stack">
         <button class="btn btn--primary" data-again>Play again (same teams)</button>
         <button class="btn btn--secondary" data-new>New game</button>
-        <button class="btn btn--accent" disabled>Share result</button>
       </div>
     </div>`;
 

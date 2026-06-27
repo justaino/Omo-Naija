@@ -75,14 +75,17 @@ body {
   font-weight: 800;
 }
 
+/* Nigerian-flag tricolour brand mark (green | white | green). */
 .brand-pill__mark {
   width: 28px;
   height: 28px;
   border-radius: 50%;
+  overflow: hidden;
   display: grid;
   place-items: center;
-  background: var(--color-primary);
-  color: var(--color-white);
+  background: linear-gradient(90deg, var(--color-primary) 0 33.33%, #fff 33.33% 66.66%, var(--color-primary) 66.66% 100%);
+  color: var(--color-charcoal);
+  text-shadow: 0 0 3px rgba(255,255,255,0.7);
 }
 
 .step-pill {
@@ -97,7 +100,7 @@ body {
   gap: 10px;
 }
 
-.mute-btn {
+.mute-btn, .theme-btn {
   min-width: 36px;
   min-height: 36px;
   padding: 0;
