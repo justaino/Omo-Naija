@@ -5,6 +5,7 @@ const CUSTOM_KEY = 'omo-naija:banks';
 const BUNDLED = [
   { id: 'naija-classic', name: 'Naija Classic' },
   { id: 'naija-genz', name: 'Naija Gen-Z' },
+  { id: 'naija-artists', name: 'Naija Artists' },
 ];
 
 export function isBundled(id) {

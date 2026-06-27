@@ -6,7 +6,7 @@
 //
 // IMPORTANT: bump CACHE on every deploy that changes files, so installed
 // devices pick up the new version (the old cache is cleaned on activate).
-const CACHE = 'omo-naija-v8';
+const CACHE = 'omo-naija-v9';
 
 const PRECACHE = [
   './',
@@ -28,6 +28,7 @@ const PRECACHE = [
   // font, word banks, sounds, icons
   'assets/fonts/anton-latin.woff2',
   'data/wordbanks/naija-classic.json', 'data/wordbanks/naija-genz.json',
+  'data/wordbanks/naija-artists.json',
   'assets/sounds/ding.wav', 'assets/sounds/tick.wav', 'assets/sounds/buzzer.wav',
   'assets/icons/icon-192.png', 'assets/icons/icon-512.png',
 ];

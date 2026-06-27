@@ -1,0 +1,1093 @@
+{
+  "id": "naija-artists",
+  "name": "Naija Artists",
+  "description": "Nigerian musicians across every era. Artist names only. Mostly mainstream with some deep cuts for real heads.",
+  "language": "Nigerian Music",
+  "cards": [
+    {
+      "id": "a001",
+      "text": "Fela Kuti",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "easy",
+      "hint": "Father of Afrobeat, activist, Kalakuta Republic",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a002",
+      "text": "King Sunny Ade",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "medium",
+      "hint": "Juju music king, multiple Grammy nominations",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a003",
+      "text": "Ebenezer Obey",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "medium",
+      "hint": "Juju legend, Chief Commander",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a004",
+      "text": "Femi Kuti",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "medium",
+      "hint": "Fela's son, carries the Afrobeat torch",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a005",
+      "text": "Seun Kuti",
+      "category": "legend",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Fela's youngest son, leads Egypt 80",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a006",
+      "text": "Onyeka Onwenu",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "medium",
+      "hint": "Queen of Nigerian pop, actress and activist",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a007",
+      "text": "Christy Essien-Igbokwe",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "hard",
+      "hint": "Lady of Songs, PMAN president",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a008",
+      "text": "Osita Osadebe",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "hard",
+      "hint": "Highlife king from Anambra",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a009",
+      "text": "Oliver De Coque",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "hard",
+      "hint": "Ogene guitar wizard",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a010",
+      "text": "Shina Peters",
+      "category": "legend",
+      "era": "old-school",
+      "difficulty": "medium",
+      "hint": "Afro-juju pioneer, Sir Shina Peters",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a011",
+      "text": "2Baba",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "easy",
+      "hint": "African Queen, formerly 2Face Idibia",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a012",
+      "text": "Plantashun Boiz",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "medium",
+      "hint": "Group that had 2Face, Blackface, Faze",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a013",
+      "text": "Faze",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "medium",
+      "hint": "Former Plantashun Boiz member, solo R&B",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a014",
+      "text": "D'banj",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "easy",
+      "hint": "Koko master, harmonica, Mo'Hits co-founder",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a015",
+      "text": "Don Jazzy",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "easy",
+      "hint": "Mo'Hits founder, Mavin Records boss",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a016",
+      "text": "P-Square",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "easy",
+      "hint": "Twin brothers, Do Me, Personally",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a017",
+      "text": "Bracket",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "medium",
+      "hint": "Duo, Yori Yori",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a018",
+      "text": "Styl-Plus",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "medium",
+      "hint": "R&B group, Olufunmi",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a019",
+      "text": "Eedris Abdulkareem",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "medium",
+      "hint": "Mr. Lecturer, beef with 50 Cent on a plane",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a020",
+      "text": "Tony Tetuila",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "medium",
+      "hint": "Your Mugu, My Car",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a021",
+      "text": "Lagbaja",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "medium",
+      "hint": "The masked Afrobeat musician, nobody knows his face",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a022",
+      "text": "Daddy Showkey",
+      "category": "90s-2000s",
+      "era": "90s",
+      "difficulty": "medium",
+      "hint": "Galala dance king from Ajegunle",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a023",
+      "text": "Remedies",
+      "category": "90s-2000s",
+      "era": "90s",
+      "difficulty": "hard",
+      "hint": "Hip-hop group, Sakomo",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a024",
+      "text": "Maintain",
+      "category": "90s-2000s",
+      "era": "2000s",
+      "difficulty": "hard",
+      "hint": "Nawti, classic naija street anthem duo",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a025",
+      "text": "Burna Boy",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "African Giant, Grammy winner, Odogwu",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a026",
+      "text": "Wizkid",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Starboy, Essence, collab with Drake",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a027",
+      "text": "Davido",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "OBO, 30 Billion, Fall",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a028",
+      "text": "Tiwa Savage",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "African Bad Gyal, Somebody's Son",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a029",
+      "text": "Tekno",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Pana, Yawa, Slim Daddy",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a030",
+      "text": "Olamide",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Baddo, Wo, street rap king, YBNL",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a031",
+      "text": "Adekunle Gold",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "AG Baby, Pick Up, Sinner",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a032",
+      "text": "Simi",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Joromi, Duduke, married to Adekunle Gold",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a033",
+      "text": "Yemi Alade",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Mama Africa, Johnny",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a034",
+      "text": "Flavour",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "N'abania, Ijele, highlife-afrobeats fusion",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a035",
+      "text": "Phyno",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Igbo rap, Connect, Fada Fada",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a036",
+      "text": "Patoranking",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Girlie O, reggae-dancehall-afrobeats",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a037",
+      "text": "Ycee",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Omo Alhaji, Juice, Tinny Entertainment",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a038",
+      "text": "Korede Bello",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Godwin, Do Like That, Mavin Records",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a039",
+      "text": "Mr Eazi",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Leg Over, emPawa Africa founder",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a040",
+      "text": "Reekado Banks",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Katapot, Rora, former Mavin",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a041",
+      "text": "Kiss Daniel",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Kizz Daniel, Buga, Vado",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a042",
+      "text": "Falz",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "The Bahd Guy, This Is Nigeria",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a043",
+      "text": "Reminisce",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Alaga Ibile, Yoruba rapper",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a044",
+      "text": "Vector",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Lafiaji, battle rap king, The Street King",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a045",
+      "text": "M.I Abaga",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "The Chairman, hip-hop godfather, Chocolate City",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a046",
+      "text": "Ice Prince",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Oleku, Superstar, Jos",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a047",
+      "text": "Jesse Jagz",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "M.I's brother, Jagz Nation",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a048",
+      "text": "Wande Coal",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Bumper to Bumper, Ojuelegba, former Mo'Hits",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a049",
+      "text": "Banky W",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Lagos Party, Yes/No, now a politician",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a050",
+      "text": "Omawumi",
+      "category": "afrobeats",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "In the Music, Weather Man",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a051",
+      "text": "Rema",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Calm Down, Mavin, Benin City",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a052",
+      "text": "Ayra Starr",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Bloody Samaritan, Rush, Mavin Records",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a053",
+      "text": "BNXN",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Formerly Benson Daniel, Finesse, For the Night",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a054",
+      "text": "Fireboy DML",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Peru, Jealous, YBNL Nation",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a055",
+      "text": "Omah Lay",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Bad Influence, Soso, Port Harcourt",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a056",
+      "text": "Tems",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Free Mind, Grammy winner, collab with Wizkid",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a057",
+      "text": "Oxlade",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Ku Lo Sa, Kaleo, alt-afrobeats",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a058",
+      "text": "Zlatan",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Zanku, Leg Work dance, Ibile",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a059",
+      "text": "Naira Marley",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Marlians president, Soapy",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a060",
+      "text": "Lil Kesh",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "medium",
+      "hint": "Shoki, Efejoku, former YBNL",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a061",
+      "text": "Bella Shmurda",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "medium",
+      "hint": "Cash App, Vision 2020, Classic Records",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a062",
+      "text": "Ruger",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Snapchat, the guy with the bandana",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a063",
+      "text": "CKay",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Love Nwantiti, went viral worldwide",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a064",
+      "text": "Joeboy",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "medium",
+      "hint": "Beginning, Baby, emPawa Africa",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a065",
+      "text": "Victony",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "medium",
+      "hint": "Soweto, Holy Father, Apollo",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a066",
+      "text": "Asake",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Palazzo, Joha, YBNL, Mr Money",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a067",
+      "text": "Seyi Vibez",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "medium",
+      "hint": "Billion Dollar Baby, street afrobeats",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a068",
+      "text": "Portable",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "easy",
+      "hint": "Zazoo Zeh, Zazu crooner, Ogun State",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a069",
+      "text": "Shallipopi",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "medium",
+      "hint": "Cast, Elon Musk, Benin City",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a070",
+      "text": "Khaid",
+      "category": "new-wave",
+      "era": "gen-z",
+      "difficulty": "hard",
+      "hint": "With You, teenage afrobeats sensation",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a071",
+      "text": "Sinach",
+      "category": "gospel",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Way Maker, RCCG music director",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a072",
+      "text": "Nathaniel Bassey",
+      "category": "gospel",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Onise Iyanu, trumpeter and worship leader",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a073",
+      "text": "Frank Edwards",
+      "category": "gospel",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Mma Mma, Rockcity Records",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a074",
+      "text": "Mercy Chinwo",
+      "category": "gospel",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Excess Love, former Nigerian Idol winner",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a075",
+      "text": "Dunsin Oyekan",
+      "category": "gospel",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "The Eagle, contemporary worship",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a076",
+      "text": "Skepta",
+      "category": "diaspora",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Grime king with Nigerian roots, Konnichiwa",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a077",
+      "text": "Skepta",
+      "category": "diaspora",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Tottenham-born Nigerian, That's Not Me",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a078",
+      "text": "Stormzy",
+      "category": "diaspora",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "UK grime star of Ghanaian-Nigerian descent",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a079",
+      "text": "Davido",
+      "category": "diaspora",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Grew up in Atlanta, 30BG",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a080",
+      "text": "Wizkid",
+      "category": "diaspora",
+      "era": "modern",
+      "difficulty": "easy",
+      "hint": "Lagos to the world, Ojuelegba",
+      "modes": [
+        "green",
+        "grey"
+      ]
+    },
+    {
+      "id": "a081",
+      "text": "Bez Idakula",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Beautiful, indie alt-soul, Abuja",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a082",
+      "text": "Asa",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Jailer, Be My Man, French-Nigerian",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a083",
+      "text": "Johnny Drille",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Wait, How Are You My Friend, indie folk",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a084",
+      "text": "Nonso Amadi",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Tonight, Canada-based, alt-afrobeats",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a085",
+      "text": "Tay Iwar",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Passport, Gemini, alt-R&B Abuja",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a086",
+      "text": "Lady Donli",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Enjoy Your Life, Afro-soul",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a087",
+      "text": "Odunsi the Engine",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Tipsy, rare, afro-rave Lagos scene",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a088",
+      "text": "Santi",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Manjo, afro-punk, Lagos underground",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a089",
+      "text": "Cruel Santino",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Formerly Santi, Subaru Boys EP",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a090",
+      "text": "BOJ",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Mr Gbagaun, Abracadabra, DRB LasGidi",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a091",
+      "text": "Ajebutter22",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Nobody Test Me, Germaine",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a092",
+      "text": "GoldMyne",
+      "category": "deep-cut",
+      "era": "2000s",
+      "difficulty": "hard",
+      "hint": "Producer turned artist, Oluwa Bless Me",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a093",
+      "text": "Cobhams Asuquo",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Asa's producer, blind music genius",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a094",
+      "text": "Praiz",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "hard",
+      "hint": "Rich and Famous, X Factor Africa",
+      "modes": [
+        "grey"
+      ]
+    },
+    {
+      "id": "a095",
+      "text": "Brymo",
+      "category": "deep-cut",
+      "era": "modern",
+      "difficulty": "medium",
+      "hint": "Heya, El Dorado, left Chocolate City famously",
+      "modes": [
+        "grey"
+      ]
+    }
+  ]
+}
