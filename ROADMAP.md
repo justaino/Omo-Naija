@@ -60,5 +60,27 @@ Bring the design to life with motion.
 
 ---
 
+## Phase 3.5 — App store distribution
+Get the app onto Google Play and (optionally) the Apple App Store.
+
+### Android (Google Play via TWA)
+- [ ] Generate a **1024×1024 icon** for the Play Store listing.
+- [ ] Write and host a **privacy policy** (a simple page on GitHub Pages is enough).
+- [ ] Use **PWABuilder** (pwabuilder.com) to generate the Android App Bundle (AAB) and the `assetlinks.json` file.
+- [ ] Host `assetlinks.json` at `justaino.github.io/.well-known/assetlinks.json` to pass Digital Asset Links verification.
+- [ ] Capture **Play Store screenshots** (at least 2 phone screenshots).
+- [ ] Create a **Google Play Developer account** ($25 one-time fee) and submit.
+
+### Apple App Store (optional, more effort)
+- [ ] Wrap the app with **Capacitor** (native iOS shell around the existing HTML/CSS/JS).
+- [ ] Set up **Mac + Xcode** and an **Apple Developer account** ($99/year).
+- [ ] Generate all required icon sizes (including 1024×1024).
+- [ ] Polish for native feel: suppress text selection / long-press menus on game elements; wire haptics to Capacitor's native plugin; style the iOS status bar to match the app.
+- [ ] Submit via App Store Connect.
+
+**Done when:** app is live and installable from Google Play (and optionally the App Store).
+
+---
+
 ## Phase 4 — Deferred / optional (out of scope for v1)
 Online multiplayer across separate devices, themed/era decks, a 300+ word bank, stats/history, shareable result cards. **Do not build toward these in earlier phases.**
