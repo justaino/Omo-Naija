@@ -142,6 +142,27 @@ Unregister, then Application → Storage → Clear site data.
 
 ## 7. Common tasks
 
+### Add / delete a custom word bank (in-app, no code)
+Users create banks at runtime — **Settings → Word banks → Add word bank**:
+- A **name**, then **words one per line**, with an optional hint after a `|`.
+
+Example to paste in the words box:
+
+```
+Jollof | the famous rice dish
+Danfo | yellow Lagos bus
+Owambe | a big lavish party
+Suya | grilled spicy meat
+Gele
+Aso ebi
+```
+
+This stores a bank in `localStorage` (key `omo-naija:banks`) — no code, no
+deploy. It then appears in the setup picker and the default-bank dropdown. The
+loader (`js/data/wordbank-loader.js`) serves custom banks straight from
+`localStorage`, so they work offline too. Delete one via the **×** next to it in
+Settings (confirmation required); built-in bundled banks aren't deletable.
+
 ### Add a bundled word bank
 1. Add `data/wordbanks/<id>.json` (same shape as `naija-classic.json`; keep
    text/hints **ASCII-safe**, each card has `id, text, category, era,

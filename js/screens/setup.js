@@ -66,7 +66,7 @@ export function render(el, ctx) {
             <input value="${esc(t.name)}" aria-label="Team ${i + 1} name" data-team="${i}" />
             <button class="icon-btn" data-remove="${i}" aria-label="Remove team ${i + 1}" ${draft.teams.length <= MIN_TEAMS ? 'disabled' : ''}>×</button>
           </div>`).join('')}
-        <button class="btn btn--ghost" data-add style="min-height:44px; margin-top:6px;" ${draft.teams.length >= MAX_TEAMS ? 'disabled' : ''}>+ Add team</button>
+        ${draft.teams.length < MAX_TEAMS ? '<button class="btn btn--ghost" data-add style="min-height:44px; margin-top:6px;">+ Add team</button>' : ''}
       </div>
 
       <div>
@@ -139,7 +139,7 @@ export function render(el, ctx) {
     });
   });
 
-  el.querySelector('[data-add]').addEventListener('click', () => {
+  el.querySelector('[data-add]')?.addEventListener('click', () => {
     if (draft.teams.length >= MAX_TEAMS) return;
     const used = draft.teams.map((t) => t.color);
     const color = TEAM_COLORS.find((c) => !used.includes(c)) || TEAM_COLORS[draft.teams.length % MAX_TEAMS];

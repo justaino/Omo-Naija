@@ -83,7 +83,7 @@ export function render(el, ctx) {
         ${custom.length ? custom.map((b) => `
           <div class="setting-row">
             <span>${esc(b.name)} · ${b.cards.length} cards</span>
-            <button class="icon-btn" data-delbank="${b.id}" aria-label="Delete ${esc(b.name)}">×</button>
+            <button class="icon-btn" data-delbank="${b.id}" data-delname="${esc(b.name)}" aria-label="Delete ${esc(b.name)}">×</button>
           </div>`).join('') : '<div class="screen__copy" style="font-size:0.86rem;">No custom banks yet.</div>'}
         <div style="margin-top:10px;">
           <input class="field" data-bankname placeholder="New bank name" aria-label="New bank name" />
@@ -129,6 +129,7 @@ export function render(el, ctx) {
   });
 
   el.querySelectorAll('[data-delbank]').forEach((b) => b.addEventListener('click', () => {
+    if (!window.confirm(`Delete the "${b.dataset.delname}" word bank? This can't be undone.`)) return;
     deleteCustomBank(b.dataset.delbank);
     if (p.defaultWordbankId === b.dataset.delbank) { p.defaultWordbankId = 'naija-classic'; savePrefs(); }
     rerender();
