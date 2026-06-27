@@ -226,7 +226,36 @@ and bump `CACHE`.
 
 ---
 
-## 9. Testing
+## 9. App store roadmap
+
+### Android (Google Play / APK)
+The app is ~80% ready. Remaining blockers before Play Store submission:
+
+- **1024×1024 icon** — Play Store requires it for the store listing (current max is 512).
+- **Privacy policy** — Google requires a hosted URL; a one-paragraph page on GitHub Pages is enough.
+- **`assetlinks.json`** — hosted at `justaino.github.io/.well-known/assetlinks.json`; links the Play Store app's signing certificate to the domain. PWABuilder generates this file for you.
+- **Screenshots** — Play Store needs at least 2 phone screenshots of the actual app.
+
+For a **test APK** (sideload only, no Play Store account needed):
+1. Go to [pwabuilder.com](https://pwabuilder.com) and enter the GitHub Pages URL.
+2. Click **Package for stores → Android → Download**.
+3. On the Android device: Settings → "Install unknown apps" → allow for your browser.
+4. Open the downloaded APK on the device and tap Install.
+5. The app appears on the home screen; the service worker caches everything on first launch for offline use.
+
+### Apple App Store
+Requires more work than Android — there is no TWA equivalent, so a native wrapper is needed:
+
+- **Capacitor** (by Ionic) — wraps the existing HTML/CSS/JS in a native iOS shell; recommended approach.
+- **Mac + Xcode** — required to build and submit.
+- **Apple Developer Program** — $99/year.
+- **1024×1024 icon** — required for the App Store listing.
+- **Privacy policy** — required; same hosted URL as above works.
+- **Polish for native feel** — suppress text selection/long-press menus on game elements; wire haptics to Capacitor's native plugin instead of the web Vibration API; style the status bar to match the app background.
+
+---
+
+## 10. Testing
 
 No test framework (buildless). Verified via headless Chrome during development:
 - Boot smoke (libs load, no console errors, correct screen).
