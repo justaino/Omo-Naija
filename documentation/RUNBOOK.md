@@ -35,6 +35,27 @@ the service worker registers and the PWA is installable there too.
 
 There is **nothing to build or install** — it's static files.
 
+### Developing & testing locally
+
+A few things that trip people up on a live edit loop:
+
+- **The service worker serves stale files.** It precaches the app shell and
+  serves cache-first, so after the first load your edits may not show. While
+  developing, open DevTools and either tick **Application → Service Workers →
+  "Update on reload"** + **"Bypass for network"**, or **Network → "Disable
+  cache"** (DevTools must stay open); a hard reload (Cmd-Shift-R) also works.
+- **Reset game state between tests.** Everything persists to `localStorage`, so
+  a game resumes on reload. To start clean, clear it (DevTools → Application →
+  Local Storage) or in the console:
+  `localStorage.removeItem('omo-naija:state')` (in-progress game),
+  `…('omo-naija:banks')` (custom banks), `…('omo-naija:prefs')` (settings + theme).
+- **Test mobile + the full-bleed layout** with DevTools' device toolbar
+  (Cmd-Shift-M) at a phone width — the card goes edge-to-edge at ≤480px and is a
+  centered card above that. Check dark mode (🌙) too.
+
+When you change an app-shell file, bump `CACHE` (see §6) so installed devices
+refresh.
+
 ---
 
 ## 3. Project structure
