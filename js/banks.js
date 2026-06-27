@@ -32,13 +32,11 @@ export function getCustomBank(id) {
   return customBanks().find((b) => b.id === id) || null;
 }
 
-// Create a custom bank from parsed word entries: [{ text, hint }].
+// Build card objects for a bank from parsed word entries: [{ text, hint }].
 // Cards default to both modes; data is kept ASCII-clean by the caller.
-export function addCustomBank(name, words) {
-  const banks = customBanks();
-  const id = `custom-${Date.now()}`;
-  const cards = words.map((w, i) => ({
-    id: `${id}-${i}`,
+function toCards(bankId, words) {
+  return words.map((w, i) => ({
+    id: `${bankId}-${i}`,
     text: w.text,
     hint: w.hint || '',
     category: 'custom',
@@ -46,13 +44,39 @@ export function addCustomBank(name, words) {
     difficulty: 'medium',
     modes: ['green', 'grey'],
   }));
-  banks.push({ id, name, cards });
+}
+
+// Create a custom bank from parsed word entries: [{ text, hint }].
+export function addCustomBank(name, words) {
+  const banks = customBanks();
+  const id = `custom-${Date.now()}`;
+  banks.push({ id, name, cards: toCards(id, words) });
+  localStorage.setItem(CUSTOM_KEY, JSON.stringify(banks));
+  return id;
+}
+
+// Edit an existing custom bank in place: replace its name + cards but KEEP its
+// id, so the default-bank preference and any setup selection stay valid.
+// Returns the id on success, or null if no such bank.
+export function updateCustomBank(id, name, words) {
+  const banks = customBanks();
+  const idx = banks.findIndex((b) => b.id === id);
+  if (idx === -1) return null;
+  banks[idx] = { id, name, cards: toCards(id, words) };
   localStorage.setItem(CUSTOM_KEY, JSON.stringify(banks));
   return id;
 }
 
 export function deleteCustomBank(id) {
   localStorage.setItem(CUSTOM_KEY, JSON.stringify(customBanks().filter((b) => b.id !== id)));
+}
+
+// Serialize a bank's cards back into the editor's textarea format:
+// "text | hint" per line (the "| hint" is dropped when there's no hint).
+export function cardsToText(cards) {
+  return (cards || [])
+    .map((c) => (c.hint ? `${c.text} | ${c.hint}` : c.text))
+    .join('\n');
 }
 
 // Parse a textarea into word entries. One per line; "word | hint" is supported.

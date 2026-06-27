@@ -1,13 +1,21 @@
 // settings.js — global preferences: sound/haptics toggles, the defaults that
 // seed a new game, and custom word-bank management. Edits persist immediately.
 import { preferences, savePrefs } from '../preferences.js';
-import { availableBanks, customBanks, addCustomBank, deleteCustomBank, parseWords } from '../banks.js';
+import { availableBanks, customBanks, getCustomBank, addCustomBank, updateCustomBank, deleteCustomBank, parseWords, cardsToText } from '../banks.js';
 import * as sound from '../sound.js';
 import { esc } from '../util.js';
+
+// Which custom bank (if any) is currently being edited. Module-level so it
+// survives the re-renders triggered by other setting changes. Reset on
+// save / cancel / delete-of-edited / leaving Settings.
+let editingId = null;
 
 export function render(el, ctx) {
   const rerender = () => render(el, ctx);
   const p = preferences;
+  // The bank under edit (null when adding). Drop a stale id if it was deleted.
+  const editing = editingId ? getCustomBank(editingId) : null;
+  if (editingId && !editing) editingId = null;
   const seg = (a) => (a ? ' class="active"' : '');
   const showStepper = p.defaultWinCondition !== 'open';
   const stepperLabel = p.defaultWinCondition === 'fixedRounds' ? 'Rounds to play' : 'Score to win';
@@ -83,12 +91,20 @@ export function render(el, ctx) {
         ${custom.length ? custom.map((b) => `
           <div class="setting-row">
             <span>${esc(b.name)} · ${b.cards.length} cards</span>
-            <button class="icon-btn" data-delbank="${b.id}" data-delname="${esc(b.name)}" aria-label="Delete ${esc(b.name)}">×</button>
+            <div class="bank-actions">
+              <button class="icon-btn" data-editbank="${b.id}" aria-label="Edit ${esc(b.name)}">✎</button>
+              <button class="icon-btn" data-delbank="${b.id}" data-delname="${esc(b.name)}" aria-label="Delete ${esc(b.name)}">×</button>
+            </div>
           </div>`).join('') : '<div class="screen__copy" style="font-size:0.86rem;">No custom banks yet.</div>'}
         <div style="margin-top:10px;">
-          <input class="field" data-bankname placeholder="New bank name" aria-label="New bank name" />
-          <textarea class="field" data-bankwords rows="4" placeholder="One word per line. Optional hint after a | e.g. Wahala | trouble" aria-label="Words, one per line"></textarea>
-          <button class="btn btn--ghost" data-addbank style="min-height:44px;">+ Add word bank</button>
+          ${editing ? `<div class="screen__copy" style="font-size:0.86rem; margin-bottom:6px;">Editing <strong>${esc(editing.name)}</strong></div>` : ''}
+          <input class="field" data-bankname placeholder="New bank name" aria-label="Bank name" value="${editing ? esc(editing.name) : ''}" />
+          <textarea class="field" data-bankwords rows="4" placeholder="One word per line. Optional hint after a | e.g. Wahala | trouble" aria-label="Words, one per line">${editing ? esc(cardsToText(editing.cards)) : ''}</textarea>
+          ${editing ? `
+          <div class="button-stack" style="margin-top:0;">
+            <button class="btn btn--ghost" data-addbank style="min-height:44px;">Save changes</button>
+            <button class="btn btn--secondary" data-canceledit style="min-height:44px;">Cancel</button>
+          </div>` : '<button class="btn btn--ghost" data-addbank style="min-height:44px;">+ Add word bank</button>'}
           <div class="screen__copy" data-bankerr style="font-size:0.82rem; color:var(--color-coral); margin-top:6px; display:none;"></div>
         </div>
       </div>
@@ -118,24 +134,40 @@ export function render(el, ctx) {
   }));
   el.querySelector('[data-defbank]')?.addEventListener('change', (e) => { p.defaultWordbankId = e.target.value; savePrefs(); });
 
+  el.querySelectorAll('[data-editbank]').forEach((b) => b.addEventListener('click', () => {
+    editingId = b.dataset.editbank;
+    rerender();
+  }));
+
+  el.querySelector('[data-canceledit]')?.addEventListener('click', () => {
+    editingId = null;
+    rerender();
+  });
+
   el.querySelector('[data-addbank]')?.addEventListener('click', () => {
     const name = el.querySelector('[data-bankname]').value.trim();
     const words = parseWords(el.querySelector('[data-bankwords]').value);
     const err = el.querySelector('[data-bankerr]');
     if (!name) return showErr(err, 'Give the bank a name.');
     if (words.length < 1) return showErr(err, 'Add at least one word.');
-    addCustomBank(name, words);
+    if (editingId) {
+      updateCustomBank(editingId, name, words);
+      editingId = null;
+    } else {
+      addCustomBank(name, words);
+    }
     rerender();
   });
 
   el.querySelectorAll('[data-delbank]').forEach((b) => b.addEventListener('click', () => {
     if (!window.confirm(`Delete the "${b.dataset.delname}" word bank? This can't be undone.`)) return;
     deleteCustomBank(b.dataset.delbank);
+    if (editingId === b.dataset.delbank) editingId = null;
     if (p.defaultWordbankId === b.dataset.delbank) { p.defaultWordbankId = 'naija-classic'; savePrefs(); }
     rerender();
   }));
 
-  el.querySelector('[data-back]').addEventListener('click', () => ctx.actions.goHome());
+  el.querySelector('[data-back]').addEventListener('click', () => { editingId = null; ctx.actions.goHome(); });
 }
 
 function showErr(el, msg) {
