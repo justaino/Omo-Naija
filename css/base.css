@@ -40,17 +40,13 @@
   outline-offset: 2px;
 }
 
-/* Themed background lives on the ROOT element so it paints the whole screen —
-   including the mobile overscroll/rubber-band area and the strip revealed as the
-   browser address bar shows/hides (which a body-only background leaves blank).
-   The solid background-color is the fallback the overscroll region falls back to;
-   the gradient is pinned to the viewport so it always covers the visible screen. */
+/* Flat app background on the ROOT element so it paints the whole screen,
+   including the mobile overscroll/rubber-band gap — which is a single solid
+   colour, so the page background is solid too and the two match exactly (a
+   gradient can't line up with a solid overscroll at both ends). Colour is the
+   midpoint of the prototype's old cream gradient, so the look is unchanged. */
 html {
-  min-height: 100%;
-  background-color: #f7f3e8;
-  background-image: linear-gradient(135deg, #fffdf7 0%, #f7f3e8 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: #fbf8f0;
 }
 
 body {

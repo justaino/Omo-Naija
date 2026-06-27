@@ -3,11 +3,10 @@
    other stylesheets is untouched. Brand accents (green/gold/coral) carry over;
    the tricolour brand mark and the green pre-turn/play cards stay as-is. */
 
-/* Background on the root (see base.css) so it covers the whole screen incl.
-   mobile overscroll; data-theme lives on <html>, hence html[data-theme]. */
+/* Flat background on the root (see base.css) so the whole screen incl. the
+   mobile overscroll gap is one solid colour; data-theme lives on <html>. */
 html[data-theme="dark"] {
-  background-color: #101214;
-  background-image: linear-gradient(135deg, #16191b 0%, #101214 100%);
+  background-color: #131618;
 }
 [data-theme="dark"] body {
   color: #ECECEC;
