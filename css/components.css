@@ -17,19 +17,6 @@
   gap: 16px;
 }
 
-/* Full-bleed card on phones (paired with the .app-shell override in base.css):
-   span edge-to-edge with no rounded corners, but keep comfortable internal
-   padding and respect side/bottom safe-area insets. */
-@media (max-width: 480px) {
-  .card {
-    width: 100%;
-    border-radius: 0;
-    padding-left: max(16px, env(safe-area-inset-left));
-    padding-right: max(16px, env(safe-area-inset-right));
-    padding-bottom: max(20px, env(safe-area-inset-bottom));
-  }
-}
-
 .texture {
   position: absolute;
   inset: 0;
