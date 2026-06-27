@@ -3,7 +3,15 @@
 
 .card {
   width: min(100%, 560px);
-  min-height: min(92vh, 820px);
+  /* Fill the available screen area (its .screen parent is a flex column that
+     stretches to the scroll region). When content is short the card fills the
+     region exactly — full card, no scroll; when content overflows, the card
+     grows past the region and the region scrolls. No fixed viewport height, so
+     no forced scroll on light screens like Home. flex-shrink is 0 so a tall card
+     can't collapse to the region height and clip its content under
+     overflow:hidden — instead it keeps its content height and the region
+     scrolls the whole card. */
+  flex: 1 0 auto;
   margin: 0 auto;
   padding: clamp(16px, 4vw, 24px);
   border-radius: 32px;

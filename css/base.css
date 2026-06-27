@@ -136,20 +136,32 @@ body {
    overflow actually kicks in; overscroll-behavior stops scroll chaining to
    the page. A little bottom padding keeps the card clear of the viewport edge
    when scrolled to the end. */
+/* The scroll region: fills the space under the fixed topbar. The single visible
+   screen sits in a row that is AT LEAST the region height but grows with its
+   content (minmax(100%, auto)) — so a short screen fills exactly (no scroll)
+   and a tall screen extends and scrolls. The scrollbar is hidden for a clean,
+   app-like surface (works in the Android WebView used by a TWA/APK); scrolling
+   by touch/wheel still works. overscroll-behavior stops scroll chaining. */
 .screen-stack {
   flex: 1;
   min-height: 0;
   display: grid;
+  grid-auto-rows: minmax(100%, auto);
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior: contain;
-  padding-bottom: 4px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge/IE */
 }
+.screen-stack::-webkit-scrollbar { display: none; } /* Chromium/WebKit + Android WebView */
 
 .screen {
   display: none;
 }
 
+/* Flex column so the card (flex:1) stretches to fill the row when content is
+   short, and grows with content when it isn't. */
 .screen.is-visible {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
