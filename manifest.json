@@ -9,6 +9,14 @@
   "orientation": "portrait",
   "background_color": "#fbf8f0",
   "theme_color": "#008751",
+  "screenshots": [
+    { "src": "screenshots/1-home.png", "sizes": "1179x2556", "type": "image/png", "form_factor": "narrow", "label": "Home screen" },
+    { "src": "screenshots/2-how-to-play.png", "sizes": "1179x2556", "type": "image/png", "form_factor": "narrow", "label": "How to play" },
+    { "src": "screenshots/3-setup.png", "sizes": "1179x2556", "type": "image/png", "form_factor": "narrow", "label": "Game setup" },
+    { "src": "screenshots/4-play.png", "sizes": "1179x2556", "type": "image/png", "form_factor": "narrow", "label": "Live play" },
+    { "src": "screenshots/5-scoreboard.png", "sizes": "1179x2556", "type": "image/png", "form_factor": "narrow", "label": "Scoreboard" },
+    { "src": "screenshots/6-celebration.png", "sizes": "1179x2556", "type": "image/png", "form_factor": "narrow", "label": "Celebration" }
+  ],
   "icons": [
     { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },

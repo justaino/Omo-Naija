@@ -6,7 +6,7 @@
 //
 // IMPORTANT: bump CACHE on every deploy that changes files, so installed
 // devices pick up the new version (the old cache is cleaned on activate).
-const CACHE = 'omo-naija-v16';
+const CACHE = 'omo-naija-v17';
 
 const PRECACHE = [
   './',
@@ -31,6 +31,8 @@ const PRECACHE = [
   'data/wordbanks/naija-artists.json',
   'assets/sounds/ding.wav', 'assets/sounds/tick.wav', 'assets/sounds/buzzer.wav',
   'assets/icons/icon-192.png', 'assets/icons/icon-512.png', 'assets/icons/icon-1024.png',
+  'screenshots/1-home.png', 'screenshots/2-how-to-play.png', 'screenshots/3-setup.png',
+  'screenshots/4-play.png', 'screenshots/5-scoreboard.png', 'screenshots/6-celebration.png',
 ];
 
 self.addEventListener('install', (event) => {
