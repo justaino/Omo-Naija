@@ -24,6 +24,8 @@
 [data-theme="dark"] .modal__copy { color: rgba(255,255,255,0.7); }
 [data-theme="dark"] .howto-list { color: rgba(255,255,255,0.78); }
 [data-theme="dark"] .mini-card__meta { color: rgba(255,255,255,0.6); }
+[data-theme="dark"] .mini-card__hint,
+[data-theme="dark"] .expanded-panel__hint { color: rgba(255,255,255,0.62); }
 [data-theme="dark"] .setting-row > span { color: #ECECEC; }
 
 /* Eyebrow / green-tinted accents */

@@ -56,8 +56,11 @@
 .pile-wrap { min-height: 180px; display: flex; align-items: flex-end; justify-content: center; position: relative; padding-top: 8px; }
 .expanded-panel { margin-top: 10px; padding: 10px 12px; border-radius: 16px; background: rgba(30,30,30,0.04); display: none; gap: 8px; }
 .team-column.is-expanded .expanded-panel { display: grid; }
-.expanded-panel__item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(30,30,30,0.08); font-size: 0.92rem; }
+.expanded-panel__item { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(30,30,30,0.08); font-size: 0.92rem; }
 .expanded-panel__item:last-child { border-bottom: 0; }
+.expanded-panel__word { font-weight: 800; }
+.expanded-panel__hint { color: rgba(30,30,30,0.6); font-weight: 600; }
+.expanded-panel__plus { flex-shrink: 0; }
 
 .reveal-card { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; flex: 1; overflow: hidden; }
 .confetti { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 15% 20%, rgba(242,201,76,0.8) 0 5px, transparent 6px), radial-gradient(circle at 80% 14%, rgba(255,107,61,0.7) 0 4px, transparent 5px), radial-gradient(circle at 20% 79%, rgba(0,135,81,0.7) 0 4px, transparent 5px), radial-gradient(circle at 82% 72%, rgba(242,201,76,0.7) 0 5px, transparent 6px); background-size: 140px 140px; animation: drift 4s linear infinite; opacity: 0.8; }

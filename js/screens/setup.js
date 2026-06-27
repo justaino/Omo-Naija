@@ -121,6 +121,7 @@ export function render(el, ctx) {
 
       <div class="button-stack" style="margin-top:8px;">
         <button class="btn btn--primary" data-start>Start game</button>
+        <button class="btn btn--secondary" data-back>Back</button>
       </div>
     </div>`;
 
@@ -180,6 +181,10 @@ export function render(el, ctx) {
     draft.settings.winTarget = v;
     rerender();
   });
+
+  // Back to Home — lets the player revisit Settings / How to play before starting.
+  // The draft is module-level and uncommitted, so leaving doesn't touch gameState.
+  el.querySelector('[data-back]').addEventListener('click', () => ctx.actions.goHome());
 
   el.querySelector('[data-start]').addEventListener('click', () => {
     // Tidy names; require at least MIN_TEAMS.

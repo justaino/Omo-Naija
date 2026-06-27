@@ -20,7 +20,9 @@ export function render(el, ctx) {
   const cards = entries.map((e, i) => {
     const cls = e.won ? 'mini-card' : 'mini-card mini-card--faded';
     const meta = e.won ? 'won' : 'skipped';
-    const inner = `<div class="mini-card__word">${esc(e.c.text)}</div><div class="mini-card__meta">${meta}</div>`;
+    // Educational touch: show the word's meaning on cards the team got.
+    const hint = e.won && e.c.hint ? `<div class="mini-card__hint">${esc(e.c.hint)}</div>` : '';
+    const inner = `<div><div class="mini-card__word">${esc(e.c.text)}</div>${hint}</div><div class="mini-card__meta">${meta}</div>`;
     return editable
       ? `<button class="${cls}" data-entry="${i}" aria-label="${esc(e.c.text)}: ${meta}. Tap to change.">${inner}</button>`
       : `<div class="${cls}">${inner}</div>`;

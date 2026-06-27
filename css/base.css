@@ -129,3 +129,17 @@ body {
 .screen.is-visible {
   display: block;
 }
+
+/* Full-bleed on phones: drop the outer gutters so the card surface reaches the
+   screen edges, and honour safe-area insets (notch / home indicator). The card
+   keeps its own internal padding (see components.css) so content stays readable
+   and never touches the edge. Tablet/desktop keep the centered card. */
+@media (max-width: 480px) {
+  .app-shell {
+    padding: env(safe-area-inset-top) 0 0;
+    gap: 8px;
+  }
+  .topbar {
+    margin: 0 8px; /* keep the topbar a tidy floating pill, not edge-to-edge */
+  }
+}

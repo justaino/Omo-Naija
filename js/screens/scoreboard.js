@@ -8,9 +8,11 @@ export function render(el, ctx) {
   const { state } = ctx;
 
   const columns = state.teams.map((t) => {
-    const list = t.wonCards.map((c) =>
-      `<div class="expanded-panel__item"><span>${esc(c.text)}</span><span>+1</span></div>`
-    ).join('') || '<div class="expanded-panel__item"><span>No cards yet</span><span></span></div>';
+    const list = t.wonCards.map((c) => {
+      // "Wahala — trouble": surface the word's meaning next to each won card.
+      const meaning = c.hint ? ` <span class="expanded-panel__hint">— ${esc(c.hint)}</span>` : '';
+      return `<div class="expanded-panel__item"><span><span class="expanded-panel__word">${esc(c.text)}</span>${meaning}</span><span class="expanded-panel__plus">+1</span></div>`;
+    }).join('') || '<div class="expanded-panel__item"><span>No cards yet</span><span></span></div>';
 
     return `
       <div class="team-column" data-toggle role="button" tabindex="0" aria-expanded="false" aria-label="${esc(t.name)} pile, ${t.score} cards — toggle word list">

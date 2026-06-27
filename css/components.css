@@ -17,6 +17,19 @@
   gap: 16px;
 }
 
+/* Full-bleed card on phones (paired with the .app-shell override in base.css):
+   span edge-to-edge with no rounded corners, but keep comfortable internal
+   padding and respect side/bottom safe-area insets. */
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    border-radius: 0;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+}
+
 .texture {
   position: absolute;
   inset: 0;
@@ -252,6 +265,7 @@ textarea.field { min-height: 88px; padding: 10px 12px; resize: vertical; margin:
 button.mini-card { border: 0; font: inherit; text-align: left; width: 100%; cursor: pointer; }
 .mini-card--faded { opacity: 0.45; background: rgba(30,30,30,0.06); }
 .mini-card__word { font-weight: 800; }
+.mini-card__hint { margin-top: 2px; font-size: 0.8rem; font-weight: 600; line-height: 1.25; color: rgba(30,30,30,0.62); }
 .mini-card__meta { font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(30,30,30,0.7); }
 .team-chip { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 12px; border-radius: var(--radius-pill); background: rgba(30,30,30,0.06); color: var(--color-charcoal); font-weight: 700; }
 .team-chip--active { background: rgba(0,135,81,0.14); color: var(--color-primary); }
