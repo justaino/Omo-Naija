@@ -54,6 +54,7 @@ As of 2026-06-27: **Phases 0–3 are complete, plus a buildless PWA.** The app i
 - **Touch + desktop:** support tap and swipe (swipe right = Got it, left = Skip) plus the on-screen buttons.
 - **No accidental taps:** confirm before End Game; keep Got it / Skip well separated.
 - **ASCII-safe** word data and hints (no emoji in the bank) for clean rendering across platforms.
+- **Test before committing.** For any visible change (CSS, layout, animations, screen logic), verify it in a real browser — serve with `python3 -m http.server 8731` — before marking the task done. Don't commit based on code reading alone. If headless verification is needed (screenshots, automated clicks), use the CDP approach from prior sessions.
 
 ## Scope discipline
 Build phase by phase per ROADMAP.md. Each phase has "done when" criteria — meet them before moving on. Don't pull future-phase work forward. If a change isn't covered by the current phase, flag it rather than silently expanding scope.
