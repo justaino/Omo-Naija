@@ -88,3 +88,10 @@ html[data-theme="dark"] {
 
 /* Modal */
 [data-theme="dark"] .modal { background: #23282a; color: #ECECEC; border-color: rgba(255,255,255,0.1); }
+
+/* Word-bank browser */
+[data-theme="dark"] .bank-group { border-color: rgba(255,255,255,0.12); }
+[data-theme="dark"] .bank-group__count { color: rgba(255,255,255,0.55); }
+[data-theme="dark"] .bank-card { border-color: rgba(255,255,255,0.1); }
+[data-theme="dark"] .bank-card__hint { color: rgba(255,255,255,0.62); }
+[data-theme="dark"] .bank-card__meta { color: rgba(255,255,255,0.45); }

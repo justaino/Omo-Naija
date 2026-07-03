@@ -20,6 +20,7 @@ import * as scoreboard from './screens/scoreboard.js';
 import * as reveal from './screens/reveal.js';
 import * as settings from './screens/settings.js';
 import * as howto from './screens/howto.js';
+import * as banksBrowser from './screens/banks-browser.js';
 
 // phase -> screen element id, topbar title, and the module that renders it.
 // The seven `core` screens are the numbered game flow; `aux` screens (settings,
@@ -34,6 +35,7 @@ const SCREENS = [
   { phase: 'end',         id: 'reveal-screen',     title: 'Reveal',         mod: reveal },
   { phase: 'settings',    id: 'settings-screen',   title: 'Settings',       mod: settings, aux: true },
   { phase: 'howto',       id: 'howto-screen',      title: 'How to play',    mod: howto,    aux: true },
+  { phase: 'banks',       id: 'banks-screen',      title: 'Word banks',     mod: banksBrowser, aux: true },
 ];
 const CORE = SCREENS.filter((s) => !s.aux);
 
@@ -189,6 +191,7 @@ ctx.actions = {
   // Aux screens (reachable from Home; don't touch game state).
   openSettings() { gameState.phase = 'settings'; render(); },
   openHowto() { gameState.phase = 'howto'; render(); },
+  openBanks() { gameState.phase = 'banks'; render(); }, // hidden dev screen (5-tap on the logo)
   goHome() { gameState.phase = 'home'; render(); },
 
   // Let the Settings screen keep the topbar mute icon in sync.

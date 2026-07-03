@@ -6,7 +6,7 @@
 //
 // IMPORTANT: bump CACHE on every deploy that changes files, so installed
 // devices pick up the new version (the old cache is cleaned on activate).
-const CACHE = 'omo-naija-v18';
+const CACHE = 'omo-naija-v20';
 
 const PRECACHE = [
   './',
@@ -22,6 +22,7 @@ const PRECACHE = [
   'js/screens/home.js', 'js/screens/setup.js', 'js/screens/preturn.js',
   'js/screens/play.js', 'js/screens/summary.js', 'js/screens/scoreboard.js',
   'js/screens/reveal.js', 'js/screens/settings.js', 'js/screens/howto.js',
+  'js/screens/banks-browser.js',
   // vendored libs
   'assets/vendor/gsap.min.js', 'assets/vendor/Flip.min.js',
   'assets/vendor/howler.min.js', 'assets/vendor/confetti.browser.min.js',

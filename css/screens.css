@@ -75,3 +75,19 @@
 @media (min-width: 700px) {
   .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* Word-bank browser (hidden developer screen) */
+.bank-list { display: grid; gap: 10px; margin-top: 12px; }
+.bank-group { border: 1px solid rgba(30,30,30,0.12); border-radius: var(--radius-md); overflow: hidden; }
+.bank-group.is-empty { display: none; }
+.bank-group__summary { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 14px; cursor: pointer; font-weight: 800; list-style: none; }
+.bank-group__summary::-webkit-details-marker { display: none; }
+.bank-group__name { flex: 1; }
+.bank-group__count { color: rgba(30,30,30,0.55); font-weight: 700; font-size: 0.86rem; }
+.bank-cards { padding: 0 14px 8px; }
+.bank-card { padding: 8px 0; border-top: 1px solid rgba(30,30,30,0.08); }
+.bank-card.is-hidden { display: none; }
+.bank-card__main { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.bank-card__word { font-weight: 800; }
+.bank-card__hint { color: rgba(30,30,30,0.6); font-weight: 600; font-size: 0.9rem; }
+.bank-card__meta { color: rgba(30,30,30,0.45); font-size: 0.76rem; margin-top: 2px; }
