@@ -129,9 +129,19 @@ export function markCard(card, toWon) {
   saveState();
 }
 
-// End the active turn (timer hit zero, or the player chose to stop) -> summary.
+// End the active turn (timer hit zero) -> summary. The card still on screen when
+// time ran out is captured as skipped so it shows on the summary — but WITHOUT
+// charging a skip (no skipsUsed, no penalty): it's a timeout, not a voluntary
+// skip. Under the "free" rule it stays tappable to flip won <-> skipped, in case
+// the team actually got it just as time expired. Goes to the discard (like a
+// real skip) so markCard() can reclaim it if flipped to won.
 export function endTurn() {
   if (gameState.phase !== 'play') return;
+  if (gameState.currentCard) {
+    gameState.turn.skippedCards.push(gameState.currentCard);
+    gameState.discard.push(gameState.currentCard);
+    gameState.currentCard = null;
+  }
   gameState.phase = 'turnsummary';
   saveState();
 }
