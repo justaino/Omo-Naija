@@ -5,7 +5,7 @@
 import { esc } from '../util.js';
 
 const VISIBLE = 8;     // most cards rendered before we compress + show "+N"
-const BASE_STEP = 12;  // px between cards when uncompressed
+const BASE_STEP = 16;  // px between cards when uncompressed
 const ROTS = [-3, 2, -2, 2, -2, 3, -2, 2]; // per-card tilt, cycled
 
 // Translucent tint from a team's hex colour (any colour gets a pile that

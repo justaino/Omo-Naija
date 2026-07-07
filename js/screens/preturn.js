@@ -15,7 +15,7 @@ export function render(el, ctx) {
   const name = team ? team.name : 'Team';
 
   el.innerHTML = `
-    <div class="card" style="background: linear-gradient(135deg, var(--color-primary) 0%, #00a15f 100%); color: var(--color-white);">
+    <div class="card" style="background: linear-gradient(135deg, var(--turn-grad-a, var(--color-primary)) 0%, var(--turn-grad-b, #00a15f) 100%); color: var(--turn-grad-fg, var(--color-white));">
       <div class="texture" aria-hidden="true"></div>
       <div class="turn-card">
         <h2 class="turn-card__title">${esc(name)}'s turn</h2>

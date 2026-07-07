@@ -27,8 +27,16 @@ export function render(el, ctx) {
       <div class="texture" aria-hidden="true"></div>
       <div class="screen__header">
         <div>
-          <div class="screen__eyebrow">Settings</div>
           <h2 class="screen__title">Settings</h2>
+        </div>
+      </div>
+
+      <div>
+        <div class="screen__eyebrow" style="margin-bottom:10px;">Theme</div>
+        <div class="mode-grid">
+          <button class="mode-card${!p.skin || p.skin === 'classic' ? ' active' : ''}" data-skin="classic"><span>Classic — the original look</span><span>●</span></button>
+          <button class="mode-card${p.skin === 'owambe' ? ' active' : ''}" data-skin="owambe"><span>Owambe Gold — emerald &amp; gold</span><span>✦</span></button>
+          <button class="mode-card${p.skin === 'highlife' ? ' active' : ''}" data-skin="highlife"><span>Highlife — retro poster</span><span>✦</span></button>
         </div>
       </div>
 
@@ -115,6 +123,10 @@ export function render(el, ctx) {
     </div>`;
 
   const set = (fn) => { fn(); savePrefs(); rerender(); };
+
+  el.querySelectorAll('[data-skin]').forEach((b) => b.addEventListener('click', () => {
+    ctx.actions.setSkin(b.dataset.skin); // persists, re-skins the app, and re-renders Settings
+  }));
 
   el.querySelectorAll('[data-sound]').forEach((b) => b.addEventListener('click', () => set(() => {
     p.soundEnabled = b.dataset.sound === 'on'; sound.refreshMute(); ctx.actions.syncMute();

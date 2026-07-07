@@ -6,14 +6,14 @@
 //
 // IMPORTANT: bump CACHE on every deploy that changes files, so installed
 // devices pick up the new version (the old cache is cleaned on activate).
-const CACHE = 'omo-naija-v21';
+const CACHE = 'omo-naija-v22';
 
 const PRECACHE = [
   './',
   'index.html',
   'manifest.json',
   // styles
-  'css/base.css', 'css/components.css', 'css/screens.css', 'css/animations.css', 'css/dark.css',
+  'css/base.css', 'css/components.css', 'css/screens.css', 'css/animations.css', 'css/dark.css', 'css/skins.css',
   // app modules
   'js/app.js', 'js/state.js', 'js/preferences.js', 'js/game.js', 'js/deck.js',
   'js/timer.js', 'js/sound.js', 'js/haptics.js', 'js/anim.js', 'js/banks.js',
@@ -26,8 +26,9 @@ const PRECACHE = [
   // vendored libs
   'assets/vendor/gsap.min.js', 'assets/vendor/Flip.min.js',
   'assets/vendor/howler.min.js', 'assets/vendor/confetti.browser.min.js',
-  // font, word banks, sounds, icons
+  // fonts (Anton = classic display; Playfair/Alfa Slab = skin display fonts), word banks, sounds, icons
   'assets/fonts/anton-latin.woff2',
+  'assets/fonts/playfair-display-700-latin.woff2', 'assets/fonts/alfa-slab-one-latin.woff2',
   'data/wordbanks/naija-classic.json', 'data/wordbanks/naija-genz.json',
   'data/wordbanks/naija-artists.json',
   'assets/sounds/ding.wav', 'assets/sounds/tick.wav', 'assets/sounds/buzzer.wav',

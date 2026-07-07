@@ -53,6 +53,11 @@ function updateMuteButton() {
 
 function updateThemeButton() {
   if (!themeBtn) return;
+  // Light/dark only applies to the Classic skin — hide the toggle otherwise.
+  // (Use style.display, not [hidden]: .theme-btn sets display:grid which would
+  // override the hidden attribute.)
+  if (theme.isFixedSkin()) { themeBtn.style.display = 'none'; return; }
+  themeBtn.style.display = '';
   const dark = theme.isDark();
   themeBtn.textContent = dark ? '☀️' : '🌙';
   themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
@@ -196,6 +201,9 @@ ctx.actions = {
 
   // Let the Settings screen keep the topbar mute icon in sync.
   syncMute() { updateMuteButton(); },
+
+  // Settings changed the visual theme (skin): apply it and reconcile the topbar.
+  setSkin(skin) { theme.setSkin(skin); updateThemeButton(); render(); },
 };
 
 // --- Boot -------------------------------------------------------------------

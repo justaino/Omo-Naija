@@ -1,0 +1,253 @@
+/* skins.css — optional VISUAL THEMES ("skins") chosen in Settings, layered on
+   top of the light base via data-skin on <html>. Classic (no data-skin) is the
+   original locked design and is deliberately untouched here. Each skin is a
+   single committed look (no separate light/dark variant): theme.js forces
+   data-theme back to the neutral light base when a skin is active, so these
+   rules only ever override the LIGHT surfaces — the same job dark.css does, just
+   in each skin's palette. Selectors are prefixed with [data-skin=".."] so they
+   outrank the base (and dark.css) without !important.
+
+   The tricolour brand mark stays green|white|green in every skin (Nigerian
+   identity), even though --color-primary is repurposed as the skin accent. */
+
+/* ---- Vendored display fonts (self-hosted, offline; SIL Open Font License) ---- */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url('../assets/fonts/playfair-display-700-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Alfa Slab One';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../assets/fonts/alfa-slab-one-latin.woff2') format('woff2');
+}
+
+/* ============================================================
+   01 · OWAMBE GOLD — deep emerald ground, champagne-gold accents
+   ============================================================ */
+:root[data-skin="owambe"] {
+  --color-primary: #e8c46a;                 /* accent repurposed to gold */
+  --color-coral: #ff8a5c;
+  --font-display: "Playfair Display", "Didot", "Bodoni 72", Georgia, serif;
+  /* pre-turn "pass the phone" card gradient (read inline in preturn.js) */
+  --turn-grad-a: #0f5138; --turn-grad-b: #08301f; --turn-grad-fg: #f6ecd2;
+}
+html[data-skin="owambe"] { background-color: #06251a; }
+[data-skin="owambe"] body { color: #f6ecd2; }
+
+/* Topbar */
+[data-skin="owambe"] .topbar { background: rgba(14,61,43,0.85); border-color: rgba(232,196,106,0.25); box-shadow: 0 8px 18px rgba(0,0,0,0.4); }
+[data-skin="owambe"] .step-pill { color: rgba(246,236,210,0.7); }
+[data-skin="owambe"] .mute-btn,
+[data-skin="owambe"] .theme-btn { background: rgba(232,196,106,0.12); border-color: rgba(232,196,106,0.28); color: #f6ecd2; }
+
+/* Cards / surfaces + gold damask texture */
+[data-skin="owambe"] .card { background: #0d3626; border-color: rgba(232,196,106,0.24); box-shadow: 0 20px 42px rgba(0,0,0,0.5); }
+[data-skin="owambe"] .texture {
+  opacity: 0.12;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(232,196,106,0.6) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(-45deg, rgba(232,196,106,0.6) 0 1px, transparent 1px 16px);
+  background-size: auto; background-position: 0 0;
+}
+
+/* Text */
+[data-skin="owambe"] .screen__copy,
+[data-skin="owambe"] .deck-count,
+[data-skin="owambe"] .modal__copy { color: rgba(246,236,210,0.72); }
+[data-skin="owambe"] .howto-list { color: rgba(246,236,210,0.82); }
+[data-skin="owambe"] .mini-card__meta { color: rgba(246,236,210,0.62); }
+[data-skin="owambe"] .mini-card__hint,
+[data-skin="owambe"] .expanded-panel__hint { color: rgba(246,236,210,0.62); }
+[data-skin="owambe"] .setting-row > span { color: #f6ecd2; }
+[data-skin="owambe"] .screen__eyebrow { background: rgba(232,196,106,0.16); color: #e8c46a; }
+
+/* Brand mark / pill stay Nigerian green|white|green */
+[data-skin="owambe"] .brand-mark,
+[data-skin="owambe"] .brand-pill__mark {
+  background: linear-gradient(90deg, #008751 0 33.33%, #fff 33.33% 66.66%, #008751 66.66% 100%);
+  color: #1E1E1E;
+}
+
+/* Buttons — dark ink on the light-gold accent for legible CTAs */
+[data-skin="owambe"] .btn--primary,
+[data-skin="owambe"] .action-btn--success { color: #06251a; }
+[data-skin="owambe"] .start-btn { background: #e8c46a; color: #06251a; }
+[data-skin="owambe"] .btn--secondary { background: rgba(232,196,106,0.14); color: #f6ecd2; }
+[data-skin="owambe"] .btn--ghost { background: transparent; border-color: rgba(232,196,106,0.4); color: #f6ecd2; }
+[data-skin="owambe"] .btn--dark { background: rgba(232,196,106,0.16); color: #f6ecd2; }
+[data-skin="owambe"] .ghost-link { color: rgba(246,236,210,0.72); }
+
+/* Form controls */
+[data-skin="owambe"] .team-row input,
+[data-skin="owambe"] .stepper input,
+[data-skin="owambe"] .bank-select,
+[data-skin="owambe"] .field { background: rgba(246,236,210,0.06); border-color: rgba(232,196,106,0.3); color: #f6ecd2; }
+[data-skin="owambe"] .icon-btn { background: rgba(232,196,106,0.14); color: #f6ecd2; }
+[data-skin="owambe"] .stepper button { background: rgba(232,196,106,0.2); color: #f6ecd2; }
+[data-skin="owambe"] .swatch { border-color: rgba(232,196,106,0.4); }
+[data-skin="owambe"] .segmented button { background: rgba(246,236,210,0.06); border-color: rgba(232,196,106,0.22); color: #f6ecd2; }
+[data-skin="owambe"] .segmented button.active { background: rgba(232,196,106,0.22); border-color: #e8c46a; color: #e8c46a; }
+[data-skin="owambe"] .mode-card { background: rgba(246,236,210,0.06); border-color: rgba(232,196,106,0.22); color: #f6ecd2; }
+[data-skin="owambe"] .mode-card--charcoal { background: rgba(246,236,210,0.03); }
+[data-skin="owambe"] .mode-card--mixed { background: linear-gradient(90deg, rgba(232,196,106,0.22) 0%, rgba(246,236,210,0.06) 100%); }
+[data-skin="owambe"] .mode-card.active { background: rgba(232,196,106,0.22); border-color: #e8c46a; color: #e8c46a; }
+
+/* Play */
+[data-skin="owambe"] .timer__inner { background: #0d3626; border-color: rgba(232,196,106,0.28); color: #f6ecd2; }
+[data-skin="owambe"] .peek-card { background: rgba(232,196,106,0.06); border-color: rgba(232,196,106,0.16); box-shadow: 0 10px 28px rgba(0,0,0,0.4); }
+[data-skin="owambe"] .score-pill { background: rgba(232,196,106,0.2); color: #e8c46a; }
+[data-skin="owambe"] .word-card { background: linear-gradient(160deg, #0f5138 0%, #08301f 100%); border: 1px solid rgba(232,196,106,0.5); box-shadow: 0 18px 40px rgba(0,0,0,0.4); color: #f6ecd2; }
+[data-skin="owambe"] .word-card--grey { background: linear-gradient(160deg, #241a0d 0%, #140d05 100%); border-color: rgba(232,196,106,0.4); }
+[data-skin="owambe"] .word-card__word { color: #e8c46a; }
+[data-skin="owambe"] .tag { background: rgba(232,196,106,0.2); color: #f6ecd2; }
+
+/* Turn summary */
+[data-skin="owambe"] .mini-card { background: linear-gradient(145deg, rgba(232,196,106,0.22) 0%, rgba(232,196,106,0.08) 100%); color: #f6ecd2; }
+[data-skin="owambe"] .mini-card--faded { background: rgba(246,236,210,0.06); }
+[data-skin="owambe"] .team-chip { background: rgba(246,236,210,0.1); color: #f6ecd2; }
+[data-skin="owambe"] .team-chip--active { background: rgba(232,196,106,0.22); color: #e8c46a; }
+
+/* Scoreboard */
+[data-skin="owambe"] .team-column { background: rgba(246,236,210,0.05); border-color: rgba(232,196,106,0.16); }
+[data-skin="owambe"] .team-column.is-expanded { background: rgba(232,196,106,0.12); }
+[data-skin="owambe"] .team-column__score { background: rgba(232,196,106,0.16); color: #f6ecd2; }
+[data-skin="owambe"] .pile-card { color: #f6ecd2; border-color: rgba(232,196,106,0.28); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
+[data-skin="owambe"] .pile-empty { color: rgba(246,236,210,0.4); }
+[data-skin="owambe"] .pile-more { background: #e8c46a; color: #06251a; }
+[data-skin="owambe"] .expanded-panel { background: rgba(246,236,210,0.05); }
+[data-skin="owambe"] .expanded-panel__item { border-color: rgba(232,196,106,0.16); }
+
+/* Reveal */
+[data-skin="owambe"] .reveal-card__title { color: #e8c46a; }
+[data-skin="owambe"] .reveal-card__eyebrow { background: rgba(232,196,106,0.22); color: #e8c46a; }
+[data-skin="owambe"] .podium__team { background: rgba(246,236,210,0.06); border-color: rgba(232,196,106,0.16); }
+[data-skin="owambe"] .podium__team--winner { background: linear-gradient(90deg, rgba(232,196,106,0.3) 0%, rgba(246,236,210,0.06) 100%); border-color: rgba(232,196,106,0.5); }
+[data-skin="owambe"] .podium__pill { background: rgba(232,196,106,0.22); color: #e8c46a; }
+[data-skin="owambe"] .score-list__row { border-color: rgba(232,196,106,0.16); }
+
+/* Modal + bank browser */
+[data-skin="owambe"] .modal { background: #0d3626; color: #f6ecd2; border-color: rgba(232,196,106,0.2); }
+[data-skin="owambe"] .bank-group { border-color: rgba(232,196,106,0.2); }
+[data-skin="owambe"] .bank-group__count { color: rgba(246,236,210,0.55); }
+[data-skin="owambe"] .bank-card { border-color: rgba(232,196,106,0.16); }
+[data-skin="owambe"] .bank-card__hint { color: rgba(246,236,210,0.62); }
+[data-skin="owambe"] .bank-card__meta { color: rgba(246,236,210,0.45); }
+
+/* ============================================================
+   02 · HIGHLIFE — 1970s poster: terracotta ground, teal card, gold slab
+   ============================================================ */
+:root[data-skin="highlife"] {
+  --color-primary: #f2c14e;                 /* accent repurposed to gold */
+  --color-coral: #ff7a45;
+  --font-display: "Alfa Slab One", "Rockwell", "Courier New", serif;
+  /* pre-turn "pass the phone" card gradient (read inline in preturn.js) */
+  --turn-grad-a: #12796c; --turn-grad-b: #0c564d; --turn-grad-fg: #f7e7c4;
+}
+html[data-skin="highlife"] { background-color: #6f2010; }
+[data-skin="highlife"] body { color: #f7e7c4; }
+
+/* Alfa Slab is heavy — ease the display line-height so big words don't crowd. */
+[data-skin="highlife"] .screen__title,
+[data-skin="highlife"] .word-card__word,
+[data-skin="highlife"] .turn-card__title,
+[data-skin="highlife"] .reveal-card__title,
+[data-skin="highlife"] .modal__title { line-height: 1.08; letter-spacing: 0.01em; }
+
+/* Topbar */
+[data-skin="highlife"] .topbar { background: rgba(124,37,18,0.85); border-color: rgba(242,193,78,0.3); box-shadow: 0 8px 18px rgba(0,0,0,0.4); }
+[data-skin="highlife"] .step-pill { color: rgba(247,231,196,0.72); }
+[data-skin="highlife"] .mute-btn,
+[data-skin="highlife"] .theme-btn { background: rgba(242,193,78,0.14); border-color: rgba(242,193,78,0.32); color: #f7e7c4; }
+
+/* Cards / surfaces + halftone texture */
+[data-skin="highlife"] .card { background: #7c2512; border-color: rgba(242,193,78,0.28); box-shadow: 0 20px 42px rgba(0,0,0,0.45); }
+[data-skin="highlife"] .texture {
+  opacity: 0.18;
+  background-image: radial-gradient(circle, rgba(42,15,8,0.9) 26%, transparent 27%);
+  background-size: 9px 9px; background-position: 0 0;
+}
+
+/* Text */
+[data-skin="highlife"] .screen__copy,
+[data-skin="highlife"] .deck-count,
+[data-skin="highlife"] .modal__copy { color: rgba(247,231,196,0.74); }
+[data-skin="highlife"] .howto-list { color: rgba(247,231,196,0.84); }
+[data-skin="highlife"] .mini-card__meta { color: rgba(247,231,196,0.62); }
+[data-skin="highlife"] .mini-card__hint,
+[data-skin="highlife"] .expanded-panel__hint { color: rgba(247,231,196,0.64); }
+[data-skin="highlife"] .setting-row > span { color: #f7e7c4; }
+[data-skin="highlife"] .screen__eyebrow { background: rgba(242,193,78,0.2); color: #f2c14e; }
+
+/* Brand mark / pill stay Nigerian green|white|green */
+[data-skin="highlife"] .brand-mark,
+[data-skin="highlife"] .brand-pill__mark {
+  background: linear-gradient(90deg, #008751 0 33.33%, #fff 33.33% 66.66%, #008751 66.66% 100%);
+  color: #1E1E1E;
+}
+
+/* Buttons — dark ink on the light-gold accent for legible CTAs */
+[data-skin="highlife"] .btn--primary,
+[data-skin="highlife"] .action-btn--success { color: #7c2512; }
+[data-skin="highlife"] .start-btn { background: #f2c14e; color: #7c2512; }
+[data-skin="highlife"] .btn--secondary { background: rgba(242,193,78,0.16); color: #f7e7c4; }
+[data-skin="highlife"] .btn--ghost { background: transparent; border-color: rgba(242,193,78,0.42); color: #f7e7c4; }
+[data-skin="highlife"] .btn--dark { background: #0f6a5f; color: #f7e7c4; }
+[data-skin="highlife"] .ghost-link { color: rgba(247,231,196,0.75); }
+
+/* Form controls */
+[data-skin="highlife"] .team-row input,
+[data-skin="highlife"] .stepper input,
+[data-skin="highlife"] .bank-select,
+[data-skin="highlife"] .field { background: rgba(247,231,196,0.08); border-color: rgba(242,193,78,0.32); color: #f7e7c4; }
+[data-skin="highlife"] .icon-btn { background: rgba(242,193,78,0.16); color: #f7e7c4; }
+[data-skin="highlife"] .stepper button { background: #0f6a5f; color: #f7e7c4; }
+[data-skin="highlife"] .swatch { border-color: rgba(242,193,78,0.42); }
+[data-skin="highlife"] .segmented button { background: rgba(247,231,196,0.08); border-color: rgba(242,193,78,0.24); color: #f7e7c4; }
+[data-skin="highlife"] .segmented button.active { background: rgba(242,193,78,0.24); border-color: #f2c14e; color: #f2c14e; }
+[data-skin="highlife"] .mode-card { background: rgba(247,231,196,0.08); border-color: rgba(242,193,78,0.24); color: #f7e7c4; }
+[data-skin="highlife"] .mode-card--charcoal { background: rgba(247,231,196,0.04); }
+[data-skin="highlife"] .mode-card--mixed { background: linear-gradient(90deg, rgba(242,193,78,0.24) 0%, rgba(247,231,196,0.08) 100%); }
+[data-skin="highlife"] .mode-card.active { background: rgba(242,193,78,0.24); border-color: #f2c14e; color: #f2c14e; }
+
+/* Play */
+[data-skin="highlife"] .timer__inner { background: #7c2512; border-color: rgba(242,193,78,0.3); color: #f7e7c4; }
+[data-skin="highlife"] .peek-card { background: rgba(15,106,95,0.5); border-color: rgba(242,193,78,0.2); box-shadow: 0 10px 28px rgba(0,0,0,0.4); }
+[data-skin="highlife"] .score-pill { background: rgba(242,193,78,0.2); color: #f2c14e; }
+[data-skin="highlife"] .word-card { background: linear-gradient(160deg, #12796c 0%, #0c564d 100%); border: 2px solid #f2c14e; box-shadow: 6px 6px 0 rgba(42,15,8,0.4); color: #f7e7c4; }
+[data-skin="highlife"] .word-card--grey { background: linear-gradient(160deg, #7c2512 0%, #571708 100%); border-color: #f2c14e; }
+[data-skin="highlife"] .word-card__word { color: #f2c14e; text-shadow: 2px 2px 0 #7c2512; }
+[data-skin="highlife"] .word-card--grey .word-card__word { text-shadow: 2px 2px 0 #2a0f08; }
+[data-skin="highlife"] .tag { background: rgba(242,193,78,0.85); color: #7c2512; }
+
+/* Turn summary */
+[data-skin="highlife"] .mini-card { background: linear-gradient(145deg, rgba(15,106,95,0.6) 0%, rgba(15,106,95,0.3) 100%); color: #f7e7c4; }
+[data-skin="highlife"] .mini-card--faded { background: rgba(247,231,196,0.07); }
+[data-skin="highlife"] .team-chip { background: rgba(247,231,196,0.1); color: #f7e7c4; }
+[data-skin="highlife"] .team-chip--active { background: rgba(242,193,78,0.24); color: #f2c14e; }
+
+/* Scoreboard */
+[data-skin="highlife"] .team-column { background: rgba(247,231,196,0.06); border-color: rgba(242,193,78,0.2); }
+[data-skin="highlife"] .team-column.is-expanded { background: rgba(15,106,95,0.28); }
+[data-skin="highlife"] .team-column__score { background: rgba(242,193,78,0.18); color: #f7e7c4; }
+[data-skin="highlife"] .pile-card { color: #f7e7c4; border-color: rgba(242,193,78,0.3); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
+[data-skin="highlife"] .pile-empty { color: rgba(247,231,196,0.4); }
+[data-skin="highlife"] .pile-more { background: #f2c14e; color: #7c2512; }
+[data-skin="highlife"] .expanded-panel { background: rgba(247,231,196,0.06); }
+[data-skin="highlife"] .expanded-panel__item { border-color: rgba(242,193,78,0.2); }
+
+/* Reveal */
+[data-skin="highlife"] .reveal-card__title { color: #f2c14e; }
+[data-skin="highlife"] .reveal-card__eyebrow { background: rgba(242,193,78,0.22); color: #f2c14e; }
+[data-skin="highlife"] .podium__team { background: rgba(247,231,196,0.06); border-color: rgba(242,193,78,0.2); }
+[data-skin="highlife"] .podium__team--winner { background: linear-gradient(90deg, rgba(242,193,78,0.3) 0%, rgba(247,231,196,0.06) 100%); border-color: rgba(242,193,78,0.55); }
+[data-skin="highlife"] .podium__pill { background: rgba(242,193,78,0.22); color: #f2c14e; }
+[data-skin="highlife"] .score-list__row { border-color: rgba(242,193,78,0.2); }
+
+/* Modal + bank browser */
+[data-skin="highlife"] .modal { background: #7c2512; color: #f7e7c4; border-color: rgba(242,193,78,0.28); }
+[data-skin="highlife"] .bank-group { border-color: rgba(242,193,78,0.24); }
+[data-skin="highlife"] .bank-group__count { color: rgba(247,231,196,0.55); }
+[data-skin="highlife"] .bank-card { border-color: rgba(242,193,78,0.2); }
+[data-skin="highlife"] .bank-card__hint { color: rgba(247,231,196,0.64); }
+[data-skin="highlife"] .bank-card__meta { color: rgba(247,231,196,0.45); }

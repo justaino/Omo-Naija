@@ -1,11 +1,19 @@
-// theme.js — light/dark theming. Default follows the OS ('system'); the topbar
-// toggle flips to an explicit 'light'/'dark'. Applied via data-theme on <html>;
-// the actual colours live in css/dark.css (an additive override layer).
+// theme.js — visual theming. Two axes:
+//   • skin  — 'classic' | 'owambe' | 'highlife' (chosen in Settings). Non-classic
+//             skins are single committed looks defined in css/skins.css.
+//   • theme — light/dark, but ONLY for the Classic skin (topbar toggle).
+// Both are applied via attributes on <html>: data-skin + data-theme. A fixed skin
+// forces data-theme back to the neutral light base so its rules layer cleanly.
 import { preferences, savePrefs } from './preferences.js';
 
 const mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
-// The effective theme right now ('light' | 'dark').
+// True when a non-Classic skin is active (light/dark toggle then doesn't apply).
+export function isFixedSkin() {
+  return !!preferences.skin && preferences.skin !== 'classic';
+}
+
+// The effective light/dark theme right now ('light' | 'dark').
 export function resolved() {
   const t = preferences.theme || 'system';
   if (t === 'light' || t === 'dark') return t;
@@ -13,11 +21,25 @@ export function resolved() {
 }
 
 export function isDark() {
-  return resolved() === 'dark';
+  return !isFixedSkin() && resolved() === 'dark';
 }
 
 export function apply() {
-  document.documentElement.setAttribute('data-theme', resolved());
+  const root = document.documentElement;
+  if (isFixedSkin()) {
+    root.setAttribute('data-skin', preferences.skin);
+    root.setAttribute('data-theme', 'light'); // fixed skins sit on the light base
+  } else {
+    root.removeAttribute('data-skin');
+    root.setAttribute('data-theme', resolved());
+  }
+}
+
+// Switch skin ('classic' | 'owambe' | 'highlife'), persist, and re-apply.
+export function setSkin(skin) {
+  preferences.skin = skin || 'classic';
+  savePrefs();
+  apply();
 }
 
 // Flip to the opposite of what's showing now (becomes an explicit choice).

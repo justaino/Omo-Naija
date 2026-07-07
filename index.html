@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Omo Naija — App Flow</title>
 
-    <!-- Apply the saved/system theme before first paint (no flash of light). -->
+    <!-- Apply the saved skin + theme before first paint (no flash). -->
     <script>
       (function () {
         try {
           var p = JSON.parse(localStorage.getItem('omo-naija:prefs') || '{}');
-          var t = p.theme || 'system';
-          var dark = t === 'dark' || (t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+          var root = document.documentElement;
+          var skin = p.skin && p.skin !== 'classic' ? p.skin : null;
+          if (skin) {
+            root.setAttribute('data-skin', skin);
+            root.setAttribute('data-theme', 'light'); // fixed skins sit on the light base
+          } else {
+            var t = p.theme || 'system';
+            var dark = t === 'dark' || (t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            root.setAttribute('data-theme', dark ? 'dark' : 'light');
+          }
         } catch (e) {}
       })();
     </script>
@@ -32,6 +39,7 @@
     <link rel="stylesheet" href="css/screens.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/dark.css" />
+    <link rel="stylesheet" href="css/skins.css" />
   </head>
   <body>
     <div class="app-shell">

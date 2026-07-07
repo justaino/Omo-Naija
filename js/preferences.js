@@ -14,7 +14,8 @@ export const preferences = {
   // Global toggles.
   soundEnabled: true,
   hapticsEnabled: true,
-  theme: 'system', // 'system' | 'light' | 'dark'
+  theme: 'system', // 'system' | 'light' | 'dark' (applies to the Classic skin)
+  skin: 'classic', // 'classic' | 'owambe' | 'highlife' — visual theme
 };
 
 export function loadPrefs() {
