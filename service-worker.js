@@ -1,12 +1,19 @@
 // service-worker.js — buildless PWA offline support.
 //
 // Precaches the whole app shell (relative paths, so it works under any base —
-// including GitHub Pages' /Omo-Naija/ subpath) and serves cache-first with a
-// network fallback that also runtime-caches anything new.
+// including GitHub Pages' /Omo-Naija/ subpath).
+//
+// Serving strategy depends on the host:
+//   • Production — cache-FIRST (offline-first); runtime-caches anything new.
+//   • Local dev (localhost / 127.0.0.1) — network-FIRST, so file edits show on
+//     reload without fighting the cache; falls back to cache when offline.
 //
 // IMPORTANT: bump CACHE on every deploy that changes files, so installed
 // devices pick up the new version (the old cache is cleaned on activate).
-const CACHE = 'omo-naija-v22';
+const CACHE = 'omo-naija-v23';
+
+// Local dev hosts get the network-first strategy (see the fetch handler).
+const DEV = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
 const PRECACHE = [
   './',
@@ -56,7 +63,36 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   if (new URL(req.url).origin !== location.origin) return; // ignore cross-origin
 
+  // Shared offline fallback: for navigations, serve the cached app shell.
+  const shellFallback = async () => {
+    if (req.mode === 'navigate') {
+      const shell = (await caches.match('index.html')) || (await caches.match('./'));
+      if (shell) return shell;
+    }
+    return null;
+  };
+
   event.respondWith((async () => {
+    if (DEV) {
+      // Network-first, and bypass the HTTP cache too ({cache:'no-store'}): a
+      // plain fetch(req) can still be served stale from Chrome's heuristic HTTP
+      // cache (dev servers send no Cache-Control), so edits wouldn't show on
+      // reload. Fetch by URL to sidestep navigate-mode Request quirks. Falls
+      // back to the cache (or app shell) only when offline.
+      try {
+        const res = await fetch(req.url, { cache: 'no-store' });
+        if (res && res.ok) (await caches.open(CACHE)).put(req, res.clone());
+        return res;
+      } catch (err) {
+        const cached = await caches.match(req);
+        if (cached) return cached;
+        const shell = await shellFallback();
+        if (shell) return shell;
+        throw err;
+      }
+    }
+
+    // Production — cache-first, runtime-caching anything new.
     const cached = await caches.match(req);
     if (cached) return cached;
     try {
@@ -67,11 +103,8 @@ self.addEventListener('fetch', (event) => {
       }
       return res;
     } catch (err) {
-      // Offline and not cached: fall back to the app shell for navigations.
-      if (req.mode === 'navigate') {
-        const shell = (await caches.match('index.html')) || (await caches.match('./'));
-        if (shell) return shell;
-      }
+      const shell = await shellFallback();
+      if (shell) return shell;
       throw err;
     }
   })());
