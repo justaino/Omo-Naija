@@ -31,7 +31,11 @@ export function pileHTML(cards, color) {
   const piles = shown.map((c, i) => {
     const y = i * step;
     const rot = ROTS[i % ROTS.length];
-    return `<div class="pile-card" style="background:${tint(color)}; transform: translateY(${y}px) rotate(${rot}deg); z-index:${i};"><span>${esc(c.text)}</span><span>✓</span></div>`;
+    // Expose the team tint as a gradient custom property (so it can be a valid
+    // layer that skins stack over a themed base; a bare colour can't be a
+    // non-final background layer). Classic just paints this flat tint.
+    const t = tint(color);
+    return `<div class="pile-card" style="--pile-tint:linear-gradient(${t},${t}); transform: translateY(${y}px) rotate(${rot}deg); z-index:${i};"><span>${esc(c.text)}</span><span>✓</span></div>`;
   }).join('');
 
   const badge = hidden > 0 ? `<div class="pile-more">+${hidden}</div>` : '';

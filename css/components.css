@@ -272,7 +272,7 @@ button.mini-card { border: 0; font: inherit; text-align: left; width: 100%; curs
 
 /* Pile cards are positioned by JS (card-stack.js sets transform/z-index inline);
    the static nth-child stacking from the prototype is gone. */
-.pile-card { position: absolute; left: 5%; top: 8px; width: 90%; min-height: 96px; border-radius: 18px; padding: 12px 14px; border: 1px solid rgba(30,30,30,0.08); color: var(--color-charcoal); font-weight: 800; font-size: 1.05rem; display: flex; align-items: flex-end; justify-content: space-between; box-shadow: 0 12px 28px rgba(30,30,30,0.1); }
+.pile-card { position: absolute; left: 5%; top: 8px; width: 90%; min-height: 96px; border-radius: 18px; padding: 12px 14px; border: 1px solid rgba(30,30,30,0.08); background: var(--pile-tint); color: var(--color-charcoal); font-weight: 800; font-size: 1.05rem; display: flex; align-items: flex-end; justify-content: space-between; box-shadow: 0 12px 28px rgba(30,30,30,0.1); }
 .pile-more { position: absolute; top: 0; right: 10%; z-index: 50; min-height: 26px; padding: 0 10px; border-radius: var(--radius-pill); background: var(--color-charcoal); color: var(--color-white); font-size: 0.78rem; font-weight: 800; display: inline-flex; align-items: center; }
 .pile-empty { position: absolute; top: 40%; color: rgba(30,30,30,0.4); font-weight: 700; font-size: 0.9rem; }
 
