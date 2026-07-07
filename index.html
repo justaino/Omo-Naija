@@ -11,8 +11,8 @@
         try {
           var p = JSON.parse(localStorage.getItem('omo-naija:prefs') || '{}');
           var root = document.documentElement;
-          var skin = p.skin && p.skin !== 'classic' ? p.skin : null;
-          if (skin) {
+          var skin = p.skin || 'highlife'; // Highlife is the default theme
+          if (skin !== 'classic') {
             root.setAttribute('data-skin', skin);
             root.setAttribute('data-theme', 'light'); // fixed skins sit on the light base
           } else {

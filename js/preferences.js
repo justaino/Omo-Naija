@@ -15,7 +15,7 @@ export const preferences = {
   soundEnabled: true,
   hapticsEnabled: true,
   theme: 'system', // 'system' | 'light' | 'dark' (applies to the Classic skin)
-  skin: 'classic', // 'classic' | 'owambe' | 'highlife' — visual theme
+  skin: 'highlife', // 'classic' | 'owambe' | 'highlife' — visual theme (Highlife is the default)
 };
 
 export function loadPrefs() {
